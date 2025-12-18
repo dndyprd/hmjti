@@ -2,15 +2,105 @@
 
 namespace App\Filament\Resources\Blogs\Schemas;
 
+use App\Models\Proker;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
+use Illuminate\Support\Str;
+use Livewire\Features\SupportFileUploads\TemporaryUploadedFile; 
 
 class BlogForm
 {
     public static function configure(Schema $schema): Schema
     {
         return $schema
-            ->components([
-                //
+            ->components([  
+                // TITLE & PROKER
+                TextInput::make('title')
+                    ->label('Judul Kegiatan')
+                    ->required(), 
+                Select::make('proker_id')
+                    ->label('Program Kerja')
+                    ->options(function () {
+                        return Proker::query()
+                            ->orderBy('slug')
+                            ->pluck('slug', 'id')
+                            ->toArray();
+                    })
+                    ->searchable()
+                    ->preload()
+                    ->native(false),
+                // TANGGAL KEGIATAN & STATUS 
+                Grid::make()
+                    ->columns(2)
+                    ->schema([ 
+                        DatePicker::make('start_date')
+                            ->label('Tanggal Mulai Kegiatan')
+                            ->required(),
+                        DatePicker::make('end_date')
+                            ->label('Tanggal Akhir Kegiatan')
+                            ->required(),
+                    ]),
+                Radio::make('status')
+                    ->label('Status Blog')
+                    ->options([
+                        'draft' => 'Draft',
+                        'published' => 'Published',
+                        'archived' => 'Archived',
+                    ])->inline(),
+                // THUMBNAIL KEGIATAN
+                FileUpload::make('thumbnail')
+                    ->label('Foto Thumbnail')
+                    ->disk('public')
+                    ->directory('img/blogs')
+                    ->visibility('public') 
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                    ])
+                    ->imageEditorMode(2)
+                    ->panelAspectRatio('16:7')
+                    ->acceptedFileTypes([
+                        'image/png',
+                        'image/jpeg',
+                        'image/jpg',
+                        'image/webp',
+                        'image/gif',
+                    ])
+                    ->getUploadedFileNameForStorageUsing(
+                        // CUSTOM FILENAME
+                        function (TemporaryUploadedFile $file, $get, $set): string { 
+                            $title = $get('title');
+                             
+                            $slug = Str::slug($title);
+                             
+                            if (empty($slug)) {
+                                $slug = 'thumbnail';
+                            }
+                             
+                            $timestamp = now()->format('Ymd_His'); 
+                            $extension = $file->getClientOriginalExtension(); 
+
+                            return "{$slug}_{$timestamp}.{$extension}";
+                        }
+                    )
+                    ->maxSize(5120)
+                    ->image()
+                    ->required(),
+                // CONTENT KEGIATAN
+                MarkdownEditor::make('content')
+                    ->label('Deskripsi Kegiatan')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('img/blogs/attachments')
+                    ->fileAttachmentsAcceptedFileTypes(['image/png', 'image/jpeg'])
+                    ->fileAttachmentsMaxSize(5120), 
             ]);
     }
 }

@@ -12,19 +12,24 @@ use App\Filament\Resources\Blogs\Tables\BlogsTable;
 use App\Models\Blog;
 use BackedEnum;
 use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
+use Filament\Schemas\Schema; 
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class BlogResource extends Resource
 {
+
     protected static ?string $model = Blog::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-newspaper';
+    protected static ?int $navigationSort = 1;
+ 
+    protected static ?string $navigationLabel = 'Blog'; 
+    protected static ?string $modelLabel = 'Blog'; 
+    protected static ?string $pluralModelLabel = 'Blog'; 
 
-    protected static ?string $recordTitleAttribute = 'blog';
+    protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {

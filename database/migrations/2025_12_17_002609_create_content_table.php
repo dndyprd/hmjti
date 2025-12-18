@@ -7,26 +7,27 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Hi, Dandy disini. Tinggal jejak sebagai Back-end
      */
     public function up(): void
     {
         // TABLE BIDANG 
-        Schema::create('bidang', function(Blueprint $table) {
+        Schema::create('bidangs', function(Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
+            $table->text('description'); 
+            $table->integer('number')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
         });
 
-        // TABLE PROKER (MASTER DATA)
+        // TABLE PROKER
         Schema::create('prokers', function (Blueprint $table) {
             $table->id();
             $table->string('name');   
-            $table->string('abbreviation');
-            $table->string('thumbnail');
-            $table->string('slug')->unique();   
+            $table->string('slug');   
             $table->text('description')->nullable();    
-            $table->text('bidang_id')->constrainted('bidang')->onDelete('cascade'); 
+            $table->integer('bidang_id')->constrainted('bidangs')->onDelete('cascade'); 
             $table->timestamps();
             $table->softDeletes();
         });
@@ -35,33 +36,23 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('thumbnail');
             $table->string('slug')->unique();  
             $table->longText('content');  
-            $table->date('date'); 
-            $table->string('location')->nullable(); 
-            $table->string('thumbnail');
+            $table->date('start_date')->nullable();   
+            $table->date('end_date')->nullable();   
+            $table->integer('proker_id')->constrainted('prokers')->onDelete('cascade');
             $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             $table->integer('view_count')->default(0);   
             $table->timestamps();
             $table->softDeletes();
         });
-
-        // TABLE RELASI BLOG - PROKER  
-        Schema::create('blog_proker', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('blog_id')->constrained('blogs')->onDelete('cascade');
-            $table->foreignId('proker_id')->constrained('prokers')->onDelete('cascade');
-            $table->timestamps();
-            
-            $table->unique(['blog_id', 'proker_id']);  
-        });
     }
 
     public function down(): void
-    {
-        Schema::dropIfExists('blog_proker');
+    { 
         Schema::dropIfExists('blogs');
         Schema::dropIfExists('prokers');
-        Schema::dropIfExists('proker');
+        Schema::dropIfExists('bidangs');
     }
 };
