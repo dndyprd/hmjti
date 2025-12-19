@@ -8,6 +8,7 @@ class Bidang extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'bidangs';
     protected $fillable = [
         'name', 'description', 'number'
     ];

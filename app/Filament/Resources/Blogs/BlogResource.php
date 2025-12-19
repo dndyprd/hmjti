@@ -16,9 +16,11 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class BlogResource extends Resource
-{
+{ 
+    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Konten';
 
     protected static ?string $model = Blog::class;
 

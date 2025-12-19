@@ -42,15 +42,22 @@ return new class extends Migration
             $table->date('start_date')->nullable();   
             $table->date('end_date')->nullable();   
             $table->integer('proker_id')->constrainted('prokers')->onDelete('cascade');
-            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
-            $table->integer('view_count')->default(0);   
+            $table->enum('status', ['draft', 'published', 'archived'])->default('draft'); 
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::create('blog_gallery', function(Blueprint $table){
+            $table->id();
+            $table->foreignId('blog_id')->constrained('blogs')->onDelete('cascade'); 
+            $table->string('photo');  
+            $table->timestamps();
         });
     }
 
     public function down(): void
     { 
+        Schema::dropIfExists('blog_gallery');
         Schema::dropIfExists('blogs');
         Schema::dropIfExists('prokers');
         Schema::dropIfExists('bidangs');

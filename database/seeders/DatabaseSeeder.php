@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BidangSeeder::class,
             ProkerSeeder::class, 
+            BlogSeeder::class,
         ]);
     }
 }

@@ -10,14 +10,21 @@ class Blog extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'blogs'; 
     protected $fillable = [
         'title', 'thumbnail', 'content', 'start_date', 'end_date', 'proker_id', 'status'
     ];
 
     // RELASI KE TABLE PROKER
-    public function prokers(): BelongsTo
+    public function prokers() 
     {
         return $this->belongsTo(Proker::class, 'proker_id');
+    }
+
+    // RELASI KE TABLE GALLERY
+    public function gallery()
+    {
+        return $this->hasMany(BlogGallery::class, 'blog_id');
     }
 
     // AUTO GENEREATE SLUG

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Filament\Resources\Prokers\Schemas;
- 
+
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput; 
@@ -16,9 +17,11 @@ class ProkerForm
                 // Nama dan Slug 
                 TextInput::make('name')
                     ->label('Nama Proker')
+                    ->placeholder('Nama Program Kerja')
                     ->required(),
                 TextInput::make('slug')
                     ->label('Singkatan / Slug')
+                    ->placeholder('Singkatan Nama Program Kerja')
                     ->autocapitalize('words')
                     ->required(), 
 
@@ -30,20 +33,16 @@ class ProkerForm
                         2 => 'Bidang 2',
                         3 => 'Bidang 3',
                         4 => 'Inti',
-                    ])
-                    ->descriptions([
-                        1 => 'Penalaran dan Keilmuan',
-                        2 => 'Minat dan Bakat',
-                        3 => 'Pengabdian Masyarakat dan Kesejahteraan Mahasiswa',
-                        4 => 'Himpunan Mahasiswa Jurusan Teknologi Informasi',
-                    ])
+                    ]) 
+                    ->inline()
                     ->required(),
                  
-                // Deskripsi
-                Textarea::make('description')
-                    ->label('Deskripsi')
-                    ->rows(10)
-                    ->required(),
+                // Deskripsi 
+                MarkdownEditor::make('description')
+                    ->label('Deskripsi Proker') 
+                    ->placeholder('Informasi dan tujuan program kerja')
+                    ->required()
+                    ->columnSpanFull(),
             ]);
     }
 }

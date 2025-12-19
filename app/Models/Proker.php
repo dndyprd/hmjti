@@ -11,6 +11,7 @@ class Proker extends Model
 {
     use SoftDeletes;
 
+    protected $table = 'prokers';
     protected $fillable = [
         'name', 'slug', 'description', 'bidang_id' 
     ];

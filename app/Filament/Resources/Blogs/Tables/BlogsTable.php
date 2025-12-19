@@ -9,11 +9,9 @@ use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\ImageColumn;
+use Filament\Actions\ViewAction; 
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\SelectFilter;
-use Filament\Tables\Filters\TrashedFilter;
+use Filament\Tables\Filters\SelectFilter; 
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -31,8 +29,12 @@ class BlogsTable
                     ->color('info'), 
                 TextColumn::make('title')  
                     ->label('Judul Kegiatan')
-                    ->searchable() 
-                    ->sortable(), 
+                    ->searchable()  
+                    ->limit(38),  
+                TextColumn::make('start_date')
+                    ->label('Tanggal Kegiatan')
+                    ->sortable()
+                    ->date('j M Y'), 
                 TextColumn::make('status')
                     ->label('Status') 
                     ->badge()
@@ -41,10 +43,6 @@ class BlogsTable
                         'published' => 'success',
                         'archived' => 'danger', 
                     }),
-                TextColumn::make('start_date')
-                    ->label('Tanggal Kegiatan')
-                    ->sortable()
-                    ->date('j M Y'), 
             ])
             ->filters([  
                 SelectFilter::make('proker_id')
@@ -80,6 +78,8 @@ class BlogsTable
                     ForceDeleteBulkAction::make(),
                     RestoreBulkAction::make(),
                 ]),
-            ]);
+            ])
+            ->defaultPaginationPageOption(15) 
+            ->defaultSort('start_date', 'desc');
     }
 }

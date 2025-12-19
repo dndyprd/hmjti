@@ -7,8 +7,9 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
-use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TextInput; 
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Str;
@@ -23,6 +24,7 @@ class BlogForm
                 // TITLE & PROKER
                 TextInput::make('title')
                     ->label('Judul Kegiatan')
+                    ->placeholder('Judul Kegiatan Terlaksana')
                     ->required(), 
                 Select::make('proker_id')
                     ->label('Program Kerja')
@@ -36,8 +38,7 @@ class BlogForm
                     ->preload()
                     ->native(false),
                 // TANGGAL KEGIATAN & STATUS 
-                Grid::make()
-                    ->columns(2)
+                Grid::make(2) 
                     ->schema([ 
                         DatePicker::make('start_date')
                             ->label('Tanggal Mulai Kegiatan')
@@ -53,6 +54,15 @@ class BlogForm
                         'published' => 'Published',
                         'archived' => 'Archived',
                     ])->inline(),
+                    
+                // CONTENT KEGIATAN
+                MarkdownEditor::make('content')
+                    ->label('Deskripsi Kegiatan')
+                    ->placeholder('Informasi kegiatan seperti tema, tujuan atau pemegang program kerja')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('blogs/attachments') 
+                    ->fileAttachmentsMaxSize(5120),
+                    
                 // THUMBNAIL KEGIATAN
                 FileUpload::make('thumbnail')
                     ->label('Foto Thumbnail')
@@ -94,13 +104,20 @@ class BlogForm
                     ->maxSize(5120)
                     ->image()
                     ->required(),
-                // CONTENT KEGIATAN
-                MarkdownEditor::make('content')
-                    ->label('Deskripsi Kegiatan')
-                    ->fileAttachmentsDisk('public')
-                    ->fileAttachmentsDirectory('img/blogs/attachments')
-                    ->fileAttachmentsAcceptedFileTypes(['image/png', 'image/jpeg'])
-                    ->fileAttachmentsMaxSize(5120), 
+                
+                // GALLERY IMAGE
+                Repeater::make('gallery')
+                    ->relationship('gallery')
+                    ->schema([  
+                        FileUpload::make('photos')
+                            ->label('Foto Dokumentasi')
+                            ->disk('public')
+                            ->directory('img/blogs/gallery')
+                            ->required(),  
+                    ])   
+                    ->defaultItems(3) 
+                    ->addActionLabel('Tambah Foto')
+                    ->columnSpanFull(),
             ]);
     }
 }
