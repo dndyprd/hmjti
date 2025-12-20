@@ -1,39 +1,38 @@
-<nav class="bg-white border-b border-gray-100 fixed w-full top-0 z-50 shadow-sm">
-    <div class="container mx-auto px-4 py-3 lg:px-8">
-        <div class="flex items-center justify-between">
-            
-            <a href="{{ route('welcome') }}" class="flex items-center gap-3">
-                <img src="{{ asset('img/logo-hmjti.png') }}" alt="Logo HMJTI" class="h-12 w-auto">
-                <div class="flex flex-col">
-                    <span class="text-lg font-semibold text-blue-700 leading-tight uppercase tracking-tight">
-                        HMJ Teknologi Informasi
-                    </span>
-                    <span class="text-xs font-medium text-gray-500">
-                        KBM Politeknik Negeri Bali
-                    </span>
-                </div>
-            </a>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-            <div class="hidden md:flex items-center gap-8 text-base font-medium text-gray-700">
-                <a href="/" class="hover:text-blue-600 transition">Beranda</a>
-                <a href="#tentang" class="hover:text-blue-600 transition">Tentang</a>
-                <a href="#bidang" class="hover:text-blue-600 transition">Bidang</a> 
-                <a href="#blog" class="hover:text-blue-600 transition">Blog</a>
+<header class="bg-white shadow-sm border-b border-gray-200 font-[poppins]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-24">
+            
+            <div class="flex items-center space-x-4">
+                <img src="{{ asset('img/logo-hmjti.png') }}" alt="HMJTI PNB" class="h-16 w-auto">
+                <div class="border-l-4 border-blue-900 h-16 mx-2"></div>
+                <div class="flex flex-col">
+                    <span class="text-gray-500 text-xs tracking-widest uppercase">Jurusan Teknologi</span>
+                    <span class="text-2xl font-bold text-gray-800 tracking-tighter">INFORMASI</span>
+                </div>
             </div>
 
-            <div class="flex items-center gap-5"> 
+            <nav class="hidden lg:flex space-x-6 items-center">
+                <a href="#" class="text-blue-950 font-medium hover:bg-blue-200 px-2 py-2 rounded-xl transition">Beranda</a>
+                <a href="#" class="text-blue-950 font-medium hover:bg-blue-200 px-2 py-2 rounded-xl transition">Profil</a>
+                <a href="#" class="text-blue-950 font-medium hover:bg-blue-200 px-2 py-2 rounded-xl transition">Program Kerja</a>
+                <a href="#" class="text-blue-950 font-medium hover:bg-blue-200 px-2 py-2 rounded-xl transition">Riset & Prestasi</a>
+                <a href="#" class="text-blue-950 font-medium hover:bg-blue-200 px-2 py-2 rounded-xl transition">Blog & Informasi</a>
+                
+                <button class="text-blue-950 hover:text-blue-700 pl-4">
+                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                </button>
+            </nav>
 
-                <a href="#kontak" class="hidden sm:inline-block bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-blue-700 hover:shadow-lg transition-all transform active:scale-95">
-                    Hubungi Kami
-                </a>
-
-                <button class="md:hidden text-gray-600">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
+            <div class="lg:hidden flex items-center">
+                <button class="text-blue-950 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
             </div>
-
         </div>
     </div>
-</nav>
+</header>

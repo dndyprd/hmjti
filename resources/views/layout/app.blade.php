@@ -10,23 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1"> 
         <meta name="description" content="Himpunan Mahasiswa Jurusan Teknologi Informasi, Keluarga Besar Mahasiswa, Politeknik Negeri Bali"> 
     </head>
-    <style>
-        @keyframes fadeSlideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-fade-slide {
-    animation: fadeSlideUp 0.6s ease-out both;
-}
-
-    </style>
     <body class="w-full"> 
         @include('components.navbar')
             @yield('content')   
