@@ -68,7 +68,7 @@
             <p class="text-xs text-blue-300">
                 &copy; {{ date('Y') }} HMJ Teknologi Informasi Politeknik Negeri Bali. All rights reserved. 
                 <br class="md:hidden"> 
-                Created by Dandy & Yoga.
+                Created by <span><a href="https://www.instagram.com/dndyprd/">Dandy</a></span> & <span><a href="https://www.instagram.com/yogadinantakom/">Yoga.</a></span>
             </p>
         </div>
     </div>
