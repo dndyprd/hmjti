@@ -245,10 +245,12 @@
                             {{ $blog['title'] }}
                         </h5>
 
-                        <a href="{{ route('blog-details', $blog['slug']) }}"
-                           class="mt-2 text-sm text-blue-600 font-medium hover:underline">
-                            Lihat Detail →
-                        </a>
+                       <a href="{{ route('blog-details', $blog['slug']) }}"
+   class="mt-2 text-sm text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
+    Lihat Detail
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+</a>
+
                     </div>
                 </div>
                 @endif
