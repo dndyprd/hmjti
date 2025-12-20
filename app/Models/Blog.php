@@ -22,7 +22,7 @@ class Blog extends Model
     }
 
     // RELASI KE TABLE GALLERY
-    public function gallery()
+    public function blog_gallery()
     {
         return $this->hasMany(BlogGallery::class, 'blog_id');
     }

@@ -9,12 +9,7 @@ class BidangSeeder extends Seeder
 {
     public function run(): void
     {
-        $bidangs = [
-            [
-                'name' => 'Inti',
-                'description' => 'Inti Himpunan Mahasiswa Jurusan Teknologi Informasi yang menaungi seluruh bidang-bidang yang terdapat di Himpunan Mahasiswa Jurusan Teknologi Informasi.',
-                'number' => 0
-            ],
+        $bidangs = [ 
             [
                 'name' => 'Penalaran dan Keilmuan',
                 'description' => 'Bidang Penalaran dan Keilmuan merupakan salah satu bidang di Himpunan Mahasiswa Jurusan Teknologi Informasi yang menaungi segala bentuk kegiatan mahasiswa yang berhubungan dengan prestasi dan kegiatan akademik terkait dunia teknologi bagi mahasiswa.',

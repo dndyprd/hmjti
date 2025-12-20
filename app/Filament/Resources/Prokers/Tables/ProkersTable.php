@@ -25,22 +25,20 @@ class ProkersTable
                     ->sortable()
                     // FORMAT ID
                     ->formatStateUsing(function ($state) {
-                        $bidang = [
-                            1 => 'Inti',
-                            2 => 'Bidang 1',
-                            3 => 'Bidang 2',
-                            4 => 'Bidang 3',
+                        $bidang = [ 
+                            1 => 'Bidang 1',
+                            2 => 'Bidang 2',
+                            3 => 'Bidang 3', 
                         ];
                         
-                        return $bidang[$state] ?? 'Tidak Diketahui';
+                        return $bidang[$state] ?? 'Inti';
                     })
                     ->badge()
                     ->color(function ($state) {
-                        $colors = [
-                            1 => 'success',
-                            2 => 'info',
-                            3 => 'danger',
-                            4 => 'warning',
+                        $colors = [ 
+                            1 => 'info',
+                            2 => 'danger',
+                            3 => 'warning', 
                         ];
                         
                         return $colors[$state] ?? 'gray';

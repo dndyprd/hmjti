@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Prokers\Schemas;
 
+use App\Models\Bidang;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Textarea;
@@ -28,14 +29,14 @@ class ProkerForm
                 // Bidang
                 Radio::make('bidang_id')
                     ->label('Proker Bidang')
-                    ->options([
-                        1 => 'Bidang 1',
-                        2 => 'Bidang 2',
-                        3 => 'Bidang 3',
-                        4 => 'Inti',
-                    ]) 
+                    ->options(function () {
+                        return Bidang::query()
+                            ->orderBy('number')
+                            ->pluck('name', 'number')
+                            ->toArray();
+                    }) 
                     ->inline()
-                    ->required(),
+                    ->columnSpanFull(), 
                  
                 // Deskripsi 
                 MarkdownEditor::make('description')

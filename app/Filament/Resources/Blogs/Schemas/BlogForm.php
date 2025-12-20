@@ -106,16 +106,52 @@ class BlogForm
                     ->required(),
                 
                 // GALLERY IMAGE
-                Repeater::make('gallery')
-                    ->relationship('gallery')
-                    ->schema([  
-                        FileUpload::make('photos')
+                Repeater::make('blog_gallery')
+                    ->label('Galeri Kegiatan')
+                    ->relationship('blog_gallery')
+                    ->schema([    
+                        FileUpload::make('photo')
                             ->label('Foto Dokumentasi')
                             ->disk('public')
                             ->directory('img/blogs/gallery')
-                            ->required(),  
+                            ->visibility('public') 
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                            ])
+                            ->imageEditorMode(2)
+                            ->panelAspectRatio('16:7')
+                            ->acceptedFileTypes([
+                                'image/png',
+                                'image/jpeg',
+                                'image/jpg',
+                                'image/webp',
+                                'image/gif',
+                            ])
+                            ->getUploadedFileNameForStorageUsing(
+                                // CUSTOM FILENAME
+                                function (TemporaryUploadedFile $file, $get, $set): string { 
+                                    $title = $get('../../title'); 
+                                    $slug = Str::slug($title);
+                                    
+                                    if (empty($slug)) {
+                                        $slug = 'gallery';
+                                    }
+                                    
+                                    // Format Name
+                                    $uniqueId = uniqid();
+                                    $timestamp = now()->format('Ymd_His'); 
+                                    $extension = $file->getClientOriginalExtension(); 
+
+                                    return "{$slug}_{$timestamp}_{$uniqueId}.{$extension}";
+                                }
+                            )
                     ])   
-                    ->defaultItems(3) 
+                    ->required()
+                    ->grid(2)
+                    ->defaultItems(4) 
                     ->addActionLabel('Tambah Foto')
                     ->columnSpanFull(),
             ]);

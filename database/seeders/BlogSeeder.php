@@ -25,7 +25,7 @@ Menghadirkan Dr. I Made Gede Sunarya, S.Kom., M.Cs. sebagai pemateri utama dan H
                 'start_date' => '2024-03-16',
                 'end_date' => '2024-03-16',
                 'proker_id' => 2,
-                'status' => 'archived',
+                'status' => 'published',
             ], 
             [
                 'title' => 'Pengenalan Kehidupan Kampus Mahasiswa Baru Teknologi Informasi 2024',
@@ -37,7 +37,7 @@ Setelah melakukan PKKMB di GOR Jasdam Udayana selama 2 hari, mahasiswa teknologi
                 'start_date' => '2024-08-26',
                 'end_date' => '2024-08-28',
                 'proker_id' => 1,
-                'status' => 'archived',
+                'status' => 'published',
             ], 
             [
                 'title' => 'PNB IT Competition #16 x ECO 2024',
@@ -48,8 +48,8 @@ Setelah melakukan PKKMB di GOR Jasdam Udayana selama 2 hari, mahasiswa teknologi
 Menghadirkan berbagai macam jenis lomba yang berkaitan dengan teknologi informasi seperti Desain Website, Poster, UI/UX, Programming, Jaringan Komputer, Sumobot, Line Follower, Pengembangan Bisnis TI, Internet of Things dan Mobile Legends. Program kerja ini diketuai oleh I Gede Wisnu Tangkas Gapara.',
                 'start_date' => '2024-10-11',
                 'end_date' => '2024-10-13',
-                'proker_id' => 5,
-                'status' => 'archived',
+                'proker_id' => 4,
+                'status' => 'published',
             ],  
             [
                 'title' => 'Regenerasi Pemimpin Teknologi Informasi 2024',
@@ -61,7 +61,7 @@ Pada kegiatan Repetisi menghadirkan tiga kandidat Ketua Himpunan Mahasiswa Jurus
                 'start_date' => '2024-09-27',
                 'end_date' => '2024-09-27',
                 'proker_id' => 10,
-                'status' => 'archived',
+                'status' => 'published',
             ],
             [
                 'title' => 'Pembukaan Prestasi Aktif Mahasiswa Teknologi informasi 2025',
@@ -88,7 +88,7 @@ Menyiapkan pelepasan calon wisudawan bagi mahasiswa semester 6 Manajemen Informa
                 'status' => 'published', 
             ], 
             [
-                'title' => 'Seminar & Workshop TechInfinity 2025',
+                'title' => 'Seminar & Workshop Game Development TechInfinity 2025',
                 'thumbnail' => 'img/blogs/techinfinity-2025_20251217_222842.jpeg',
                 'slug' => 'techinfinity-2025',
                 'content' => 'Kegiatan Seminar dan Workshop bertema "Unlock Game Worlds with Construct 3: Step into Game Development". Berlaksana di Ruang Widya Guna, Politeknik Negeri Bali pada tanggal 21 September 2025.
@@ -112,7 +112,7 @@ Setelah melakukan PKKMB di GOR Jasdam Udayana selama 2 hari, mahasiswa teknologi
                 'status' => 'published',
             ], 
             [
-                'title' => 'PNB IT Competition #17 2025',
+                'title' => 'Perlombaan PNB IT Competition #17 2025',
                 'thumbnail' => 'img/blogs/pnb-it-competition-17-2025_20251218_024108.jpeg',
                 'slug' => 'pnb-it-competition-17-2025',
                 'content' => 'Kegiatan perlombaan berskala nasional bertema "Innovate the Future: Transforming Ideas into Technology". Berlaksana di Gedung Widya Padma, Politeknik Negeri Bali mulai dari tanggal 24 Oktober 2025 hingga 26 Oktober 2025.
@@ -120,7 +120,7 @@ Setelah melakukan PKKMB di GOR Jasdam Udayana selama 2 hari, mahasiswa teknologi
 Menghadirkan berbagai macam jenis lomba yang berkaitan dengan teknologi informasi seperti Desain Website, Poster, UI/UX, Programming, Jaringan Komputer, Sumobot dan Mobile Legends. Program kerja ini diketuai oleh Lunny Daffalia Santoso.',
                 'start_date' => '2025-10-24',
                 'end_date' => '2025-10-26',
-                'proker_id' => 5,
+                'proker_id' => 4,
                 'status' => 'published', 
             ], 
             [

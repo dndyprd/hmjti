@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             BidangSeeder::class,
             ProkerSeeder::class, 
             BlogSeeder::class,
+            BlogGallerySeeder::class,
         ]);
     }
 }

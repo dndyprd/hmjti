@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class BlogGallery extends Model
 { 
     protected $table = 'blog_gallery';
-    protected $fillable = ['blog_id', 'photo', 'description'];
+    protected $fillable = ['blog_id', 'photo'];
     
     public function blog()
     {

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('name');   
             $table->string('slug');   
             $table->text('description')->nullable();    
-            $table->integer('bidang_id')->constrainted('bidangs')->onDelete('cascade'); 
+            $table->integer('bidang_id')->constrainted('bidangs')->onDelete('cascade')->nullable(); 
             $table->timestamps();
             $table->softDeletes();
         });
