@@ -9,5 +9,7 @@ Route::get('/blogs', [BlogController::class, 'index'])->name('blog-all');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog-details');
 
 // view route standar 
-Route::view('/after-event', 'after-event')->name('after-event');
+Route::get('blog.after_event', function () {
+    return view('after-event');
+})->name('after-event');
 
