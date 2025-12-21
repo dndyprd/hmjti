@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Blog; 
+ 
 use App\Http\Controllers\BlogController;
 use App\Models\Bidang;
 use Exception; 
@@ -12,9 +11,7 @@ class WelcomeController extends Controller
     public function index()
     {
         try { 
-            /** 
-             * DATA BIDANG & PROKER
-             */
+            // DATA BIDANG & PROKER 
             $bidangs = Bidang::select([
                     'id', 'name', 'number', 'description' 
                 ])
@@ -22,7 +19,7 @@ class WelcomeController extends Controller
                 ->orderBy('number', 'asc')
                 ->get();
             
-            $formattedBidangs = $bidangs->map(function ($bidang) {
+            $bidangs = $bidangs->map(function ($bidang) {
                 $bidang->prokers = $bidang->prokers->map(function ($proker) {
                     // HAPUS SPASI DAN JADIKAN LOWERCASE 
                     $cleanName = strtolower(str_replace(' ', '', $proker->name));
@@ -32,7 +29,7 @@ class WelcomeController extends Controller
                     if (!str_contains($cleanName, $cleanSlug)) {
                         $proker->display_name = strtoupper($proker->slug) . " (" . $proker->name . ")";
                     } else {
-                        $proker->display_name = $proker->name;
+                        $proker->display_name = $proker->slug;
                     }
                     
                     return $proker;
@@ -41,26 +38,12 @@ class WelcomeController extends Controller
                 return $bidang;
             });
 
-            /** 
-             * DATA BLOG
-             */
-            $blogs = Blog::select([
-                    'id', 'title', 'thumbnail', 'slug', 'content', 
-                    'start_date', 'end_date', 'status', 'proker_id'
-                ])
-                ->with(['prokers:id,slug,name', 'blog_gallery:blog_id,photo'])
-                ->where('status', 'published')  
-                ->orderBy('start_date', 'desc')
-                ->get();
-            
-            // Format Blog
-            $formattedBlogs = $blogs->map(function ($blog) {
-                return BlogController::formatBlogData($blog);
-            });
+            // DATA BLOG 
+            $blogs = BlogController::getData(6);
             
             return view('welcome', [
-                'bidangs' => $formattedBidangs,
-                'blogs' => $formattedBlogs
+                'bidangs' => $bidangs,
+                'blogs' => $blogs
             ]);  
         } catch (Exception $e) {  
             return view('welcome', [

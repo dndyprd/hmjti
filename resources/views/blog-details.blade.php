@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout')
 
 @section('content')
 {{-- HERO SECTION --}}
@@ -6,11 +6,12 @@
     {{-- Background Image dengan Overlay --}}
     <div class="absolute inset-0 z-0">
         <img src="{{ $blogs['thumbnail'] }}" class="w-full h-full object-cover" alt="{{ $blogs['title'] }}">
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 
+                via-blue-800/60  to-transparent z-10"></div>
     </div>
 
     {{-- Hero Content --}}
-    <div class="relative z-10 text-center px-6 lg:px-28">
+    <div class="relative text-center px-6 lg:px-28 z-20 mt-12">
         <span class="px-4 py-1 bg-blue-600 text-white text-sm font-semibold rounded-full uppercase tracking-wider">
             {{ $blogs['proker'] }}
         </span>
@@ -26,10 +27,9 @@
 </section>
 
 {{-- CONTENT SECTION --}}
-<section class="py-16 px-6 lg:px-64 bg-white">
-    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
-        {{-- Mengubah newline (\n) menjadi paragraf --}}
-        {!! nl2br(e($blogs['content'])) !!}
+<section class="py-12 lg:py-16 px-8 lg:px-32 bg-white">
+    <div class="prose prose-lg text-base max-w-none text-gray-700 leading-relaxed text-justify"> 
+        {!! $blogs['content'] !!}
     </div>
 </section>
 
@@ -57,7 +57,7 @@
             @foreach($blogs['gallery'] as $photo)
                 <div class="slider-item p-3 min-w-full md:min-w-[50%] lg:min-w-[33.333%]">
                     <div class="h-64 lg:h-80 rounded-xl overflow-hidden shadow-md">
-                        <img src="{{ $photo }}" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500" alt="Gallery">
+                        <img src="{{ $photo }}" class="w-full h-full object-cover hover:scale-102 transition-transform duration-500" alt="Gallery">
                     </div>
                 </div>
             @endforeach
@@ -65,3 +65,6 @@
     </div>
 </section>
 @endsection
+@push('scripts')
+    <script src="{{ asset('js/blog-details.js') }}"></script>
+@endpush

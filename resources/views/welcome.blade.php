@@ -1,55 +1,48 @@
 @extends('layout')
 @section('content')
-{{-- BIDANG SECTION --}}
-
-<section id="home" class="relative h-screen overflow-hidden flex items-center px-28">
-
-    <!-- Background Video -->
-    <video
-        autoplay
-        muted
-        loop
-        playsinline
+{{-- BIDANG SECTION --}} 
+<section id="home" class="relative h-screen overflow-hidden flex items-center"> 
+    {{-- Background Image --}}
+    <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
+         src="{{ $blogs[1]['thumbnail'] }}" 
+         alt="HMJ Teknologi Informasi">
+    
+    {{-- Background Video
+    <video autoplay muted loop playsinline
         class="absolute inset-0 w-full h-full object-cover z-0">
         <source src="{{ asset('video/hmjti-bg.mp4') }}" type="video/mp4">
         Browser Anda tidak mendukung video.
-    </video>
+    </video> --}}
 
-    <!-- Overlay gradasi biru -->
-    <div class="absolute inset-0 
-                bg-gradient-to-r 
-                from-blue-900/80 
-                via-blue-800/60 
-                to-transparent
-                z-10">
+    {{-- Overlay gradasi biru --}}
+    <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 
+                via-blue-800/60  to-transparent z-10">
     </div>
 
     <div class="absolute bottom-24 left-1/2 -translate-x-1/2
             z-20 flex flex-col items-center text-center text-white">
 
-        <h3 class="italic font-semibold text-4xl mb-6">
+        <h3 class="italic font-semibold text-4xl mb-4">
             "Salam Satu Frekuensi"
         </h3>
 
 
-        <!-- Scroll Icon -->
-        <a href="#tentang" class="flex flex-col items-center group">
-            <span class="text-sm mb-2 opacity-80">
+        {{-- Scroll Icon --}}
+        <a href="#profil" class="flex flex-col items-center group">
+            <span class="text-base mb-8 uppercase border-2 border-white hover:bg-white hover:text-blue-700 rounded-xl px-4 py-2">
                 Scroll ke bawah
             </span>
-            <i class="fa-solid fa-chevron-down text-3xl 
-                  animate-bounce 
+            <i class="fa-solid fa-chevron-down text-2xl 
+                  animate-bounce
                   group-hover:text-blue-300 transition">
             </i>
-        </a>
-
+        </a> 
     </div>
-
 </section>
 
 
 {{-- ABOUT SECTION --}}
-<section id="about" class="bg-slate-100 px-6 lg:px-28 py-20">
+<section id="profil" class="bg-slate-100 px-6 lg:px-28 py-20">
     <div class="max-w-7xl mx-auto text-center">
         <span class="block text-sm uppercase tracking-widest text-blue-600 mb-3">
             Tentang Kami
@@ -71,11 +64,10 @@
 </section>
 
 {{-- BIDANG SECTION --}}
-<section id="bidang" class="relative py-20 px-6 lg:px-28 bg-slate-50 overflow-hidden">
+<section id="program-kerja" class="relative py-20 px-6 lg:px-28 bg-slate-50 overflow-hidden">
 
-    {{-- BACKGROUND VARIATION --}}
-    <!-- Gradient Blobs -->
-    <div class="absolute -top-32 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
+    {{-- BACKGROUND VARIATION --}} 
+    <div class="absolute top-0 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 -right-32 w-[420px] h-[420px] bg-sky-300/30 rounded-full blur-3xl"></div>
 
     <!-- Subtle Grid Pattern -->
@@ -85,13 +77,13 @@
     <div class="relative z-10">
 
         {{-- HEADING --}}
-        <div class="text-center mb-14">
-            <span class="block text-sm uppercase tracking-widest text-blue-600 mb-3">
+        <div class="text-center mb-8">
+            <span class="block text-sm uppercase tracking-widest text-blue-600 mb-2">
                 Struktur Organisasi
             </span>
             <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                Bidang - Bidang
-                <span class="block text-blue-700">HMJ Teknologi Informasi</span>
+                Bidang - Bidang <br>HMJ 
+                <span class="text-blue-700"> Teknologi Informasi</span>
             </h3>
         </div>
 
@@ -101,11 +93,11 @@
                 <button
                     id="btn{{ $bidang['number'] }}"
                     onclick="bidangSort({{ $bidang['number'] }})"
-                    class="btn-bidang px-5 py-2 rounded-full text-sm font-semibold
-                        border border-blue-600
+                    class="btn-bidang px-5 py-2 rounded-xl text-sm font-semibold
+                        border border-blue-700 cursor-pointer
                         {{ $bidang['number'] == 1
-                            ? 'bg-blue-600 text-white shadow-md'
-                            : 'text-blue-600 hover:bg-blue-50' }}
+                            ? 'bg-blue-700 text-slate-100'
+                            : 'text-blue-700 ' }}
                         transition-all duration-300">
                     {{ $bidang['name'] }}
                 </button>
@@ -114,27 +106,25 @@
 
         {{-- CONTENT BIDANG --}}
         @foreach($bidangs as $bidang)
-            <div
-                id="bidang{{ $bidang['number'] }}"
-                class="content-bidang {{ $bidang['number'] == 1 ? 'grid' : 'hidden' }}
-                       grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div id="bidang{{ $bidang['number'] }}"
+                class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col md:flex-row gap-12 items-center">
 
                 {{-- INFO BIDANG --}}
-                <div class="flex flex-col justify-center h-full font-[Poppins] animate-fade-slide">
-                    <h4 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-8">
-                        Informasi & Program Kerja
-                        <span class="block text-blue-600 mt-2">
+                <div class="w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
+                    <h4 class="text-3xl md:text-4xl font-extrabold text-gray-900  mb-8">
+                        Informasi & Program Kerja<br>
+                        <span class="text-blue-600 mt-2">
                             {{ $bidang['name'] }}
                         </span>
                     </h4>
 
-                    <p class="text-gray-600 text-lg md:text-xl leading-relaxed text-justify max-w-xl">
+                    <p class="text-gray-600 text-md md:text-lg leading-relaxed text-justify">
                         {{ $bidang['description'] }}
                     </p>
                 </div>
 
                 {{-- PROKER --}}
-                <div class="flex flex-col gap-4">
+                <div class="w-3/7 flex flex-col gap-4">
                     @foreach($bidang['prokers'] as $index => $proker)
                         <details
                             name="proker-bidang-{{ $bidang['number'] }}"
@@ -171,7 +161,6 @@
     </div>
 </section>
 
-
 {{-- BLOG SECTION --}}
 <section id="blog" class="py-20 px-6 lg:px-28 bg-slate-50 font-[Poppins]">
 
@@ -186,7 +175,7 @@
             </h3>
         </div>
 
-        <p class="text-gray-600 max-w-md">
+        <p class="text-gray-600 max-w-md text-right">
             Dokumentasi dan cerita singkat kegiatan HMJ Teknologi Informasi Politeknik Negeri Bali.
         </p>
     </div>
@@ -195,16 +184,16 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
 
         {{-- FEATURED BLOG --}}
-        @if(count($blogs) > 0)
+        @if(count($blogs) > 1)
         <div class="lg:col-span-2">
             <div class="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
 
                 <div class="relative aspect-video overflow-hidden">
                     <img src="{{ $blogs[0]['thumbnail'] }}"
                          alt="{{ $blogs[0]['title'] }}"
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                         class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
 
-                    <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-semibold px-4 py-1 rounded-full">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-xl">
                         Featured Event
                     </span>
                 </div>
@@ -225,7 +214,7 @@
                     </a>
                 </div>
             </div>
-        </div>
+        </div> 
         @endif
 
         {{-- LIST BLOG --}}
@@ -237,7 +226,7 @@
                     <div class="w-28 h-20 rounded-xl overflow-hidden shrink-0">
                         <img src="{{ $blog['thumbnail'] }}"
                              alt="{{ $blog['title'] }}"
-                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
 
                     <div class="flex flex-col">
@@ -253,6 +242,10 @@
                 </div>
                 @endif
             @endforeach
+             
+            <a href="{{ route('blog-all')}}" class="bg-blue-700 hover:bg-blue-800 text-white inline-flex items-center justify-center gap-2 hover:gap-4 transition duration-300 rounded-lg py-2 text-center">
+                Lihat Informasi Lainnya <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
         </div>
     </div>
 
@@ -260,6 +253,8 @@
     <div id="pagination-js" class="mt-16 flex justify-center items-center gap-2">
         {{-- generated by JS --}}
     </div>
-</section>
-
-@endsection
+</section> 
+@endsection 
+@push('scripts')
+    <script src="{{ asset('js/welcome.js') }}"></script>
+@endpush
