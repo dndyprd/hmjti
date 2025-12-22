@@ -186,14 +186,14 @@
         {{-- FEATURED BLOG --}}
         @if(count($blogs) > 1)
         <div class="lg:col-span-2">
-            <div class="group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+            <div class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
 
                 <div class="relative aspect-video overflow-hidden">
                     <img src="{{ $blogs[0]['thumbnail'] }}"
                          alt="{{ $blogs[0]['title'] }}"
                          class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
 
-                    <span class="absolute top-4 left-4 bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-xl">
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-lg">
                         Featured Event
                     </span>
                 </div>
@@ -204,7 +204,7 @@
                     </h4>
 
                     <p class="text-gray-600 leading-relaxed line-clamp-3 mb-6">
-                        {{ $blogs[0]['content'] }}
+                        {{ $blogs[1]['long_excerpt'] }}
                     </p>
 
                     <a href="{{ route('blog-details', $blogs[0]['slug']) }}"

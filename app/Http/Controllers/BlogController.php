@@ -86,13 +86,16 @@ class BlogController extends Controller
             $date = $startDate->translatedFormat('d F Y') . ' - ' . 
                     $endDate->translatedFormat('d F Y'); 
         } 
+
+        $cleanText = html_entity_decode(strip_tags($blog->content));
         
         return [ 
             'title' => $blog->title,
             'thumbnail' => asset('storage/' . $blog->thumbnail), 
             'slug' => $blog->slug, 
             'content' => $blog->content,
-            'excerpt' => Str::limit(strip_tags($blog->content), 80),
+            'excerpt' => Str::limit($cleanText, 80),
+            'long_excerpt' => Str::limit($cleanText, 260),
             'date' => $date, 
             'proker' => $blog->prokers->slug ?? 'Tidak ada proker',  
             'gallery'   => $blog->blog_gallery->map(function ($item) {
