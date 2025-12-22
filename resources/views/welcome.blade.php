@@ -104,56 +104,61 @@
             @endforeach
         </div>
 
-        {{-- CONTENT BIDANG --}}
-        @foreach($bidangs as $bidang)
-            <div id="bidang{{ $bidang['number'] }}"
-                class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col md:flex-row gap-12 items-center">
+ {{-- CONTENT BIDANG --}}
+@foreach($bidangs as $bidang)
+    <div id="bidang{{ $bidang['number'] }}"
+        class="content-bidang {{ $bidang['number'] == 1 ? 'block' : 'hidden' }}">
 
-                {{-- INFO BIDANG --}}
-                <div class="w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
-                    <h4 class="text-3xl md:text-4xl font-extrabold text-gray-900  mb-8">
-                        Informasi & Program Kerja<br>
-                        <span class="text-blue-600 mt-2">
-                            {{ $bidang['name'] }}
-                        </span>
-                    </h4>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-                    <p class="text-gray-600 text-md md:text-lg leading-relaxed text-justify">
-                        {{ $bidang['description'] }}
-                    </p>
-                </div>
+            {{-- SPACER (desktop only) --}}
+            <div class="hidden lg:block lg:col-span-1"></div>
 
-                {{-- PROKER --}}
-                <div class="w-3/7 flex flex-col gap-4">
-                    @foreach($bidang['prokers'] as $index => $proker)
-                        <details
-                            name="proker-bidang-{{ $bidang['number'] }}"
-                            class="group bg-white rounded-2xl border border-gray-100 shadow-sm
-                                   open:shadow-md transition-all duration-300"
-                            {{ $index == 0 ? 'open' : '' }}>
+            {{-- INFO BIDANG (CENTER & BIG) --}}
+            <div class="lg:col-span-6 text-center lg:text-left font-[Poppins] animate-fade-slide">
+                <h4 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
+                    Informasi & Program Kerja <br>
+                    <span class="text-blue-600">
+                        {{ $bidang['name'] }}
+                    </span>
+                </h4>
 
-                            {{-- SUMMARY --}}
-                            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none
-                                             hover:bg-slate-50 rounded-2xl transition">
-                                <span class="text-lg font-semibold text-gray-800">
-                                    {{ $proker['display_name'] }}
-                                </span>
+                <p class="text-gray-600 text-lg md:text-xl leading-relaxed text-justify lg:text-left max-w-3xl mx-auto lg:mx-0">
+                    {{ $bidang['description'] }}
+                </p>
+            </div>
 
-                                <span
-                                    class="w-9 h-9 rounded-full bg-blue-50 text-blue-600
-                                           flex items-center justify-center
-                                           group-open:bg-blue-600 group-open:text-white
-                                           transition-all duration-300">
-                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
-                                </span>
-                            </summary>
+            {{-- PROKER --}}
+            <div class="lg:col-span-5 flex flex-col gap-4">
+                @foreach($bidang['prokers'] as $index => $proker)
+                    <details
+                        name="proker-bidang-{{ $bidang['number'] }}"
+                        class="group bg-white rounded-2xl border border-gray-100 shadow-sm
+                               open:shadow-md transition-all duration-300"
+                        {{ $index === 0 ? 'open' : '' }}>
 
-                            {{-- CONTENT --}}
-                            <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100">
-                                {{ $proker['description'] }}
-                            </div>
-                        </details>
-                    @endforeach
+                        <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none
+                                         hover:bg-slate-50 rounded-2xl transition">
+                            <span class="text-base md:text-lg font-semibold text-gray-800">
+                                {{ $proker['display_name'] }}
+                            </span>
+
+                            <span
+                                class="w-9 h-9 rounded-full bg-blue-50 text-blue-600
+                                       flex items-center justify-center
+                                       group-open:bg-blue-600 group-open:text-white
+                                       transition-all duration-300">
+                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                            </span>
+                        </summary>
+
+                        <div class="px-6 pb-6 pt-4 text-gray-600 leading-relaxed border-t border-gray-100">
+                            {{ $proker['description'] }}
+                        </div>
+                    </details>
+                @endforeach
+            </div>
+
                 </div>
             </div>
         @endforeach
