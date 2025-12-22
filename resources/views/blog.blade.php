@@ -18,7 +18,7 @@
             {{ $blogs['title'] }}
         </h1>
         <div class="flex items-center justify-center text-gray-200 gap-4 text-lg">
-            <span class="flex items-center gap-2">
+            <span class="flex items-center gap-2 bg-blue-500 px-3 py-3 rounded-2xl mt-4 mb-6 shadow-2xl italic">
                 <i class="fa-regular fa-calendar"></i> {{ $blogs['date'] }}
             </span>
         </div>
@@ -26,7 +26,7 @@
 </section>
 
 {{-- CONTENT SECTION --}}
-<section class="py-16 px-6 lg:px-64 bg-white">
+<section class="py-16 px-6 lg:px-64 bg-white font-[Poppins]">
     <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
         {{-- Mengubah newline (\n) menjadi paragraf --}}
         {!! nl2br(e($blogs['content'])) !!}
