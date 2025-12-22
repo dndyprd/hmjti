@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Blogs\Schemas;
 use App\Models\Proker;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\MarkdownEditor;
+use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
@@ -53,15 +53,7 @@ class BlogForm
                         'draft' => 'Draft',
                         'published' => 'Published',
                         'archived' => 'Archived',
-                    ])->inline(),
-                    
-                // CONTENT KEGIATAN
-                MarkdownEditor::make('content')
-                    ->label('Deskripsi Kegiatan')
-                    ->placeholder('Informasi kegiatan seperti tema, tujuan atau pemegang program kerja')
-                    ->fileAttachmentsDisk('public')
-                    ->fileAttachmentsDirectory('blogs/attachments') 
-                    ->fileAttachmentsMaxSize(5120),
+                    ])->inline(), 
                     
                 // THUMBNAIL KEGIATAN
                 FileUpload::make('thumbnail')
@@ -103,7 +95,24 @@ class BlogForm
                     )
                     ->maxSize(5120)
                     ->image()
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
+                
+                // CONTENT KEGIATAN
+                RichEditor::make('content')
+                    ->label('Deskripsi Kegiatan')
+                    ->placeholder('Informasi kegiatan seperti tema, tujuan atau pemegang program kerja. Gunakan "Ctrl + Enter" untuk spasi dengan gap kecil.')
+                    ->toolbarButtons([
+                        ['bold', 'italic', 'underline', 'strike', 'subscript', 'superscript', 'link'],
+                        ['h2', 'h3', 'alignStart', 'alignCenter', 'alignEnd'],
+                        ['blockquote', 'codeBlock', 'bulletList', 'orderedList'],
+                        ['table', 'attachFiles'], 
+                        ['undo', 'redo'],
+                    ])
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('blogs/attachments') 
+                    ->fileAttachmentsMaxSize(1500) 
+                    ->columnSpanFull(),
                 
                 // GALLERY IMAGE
                 Repeater::make('blog_gallery')
