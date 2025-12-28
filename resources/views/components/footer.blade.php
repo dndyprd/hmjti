@@ -1,4 +1,4 @@
-<footer class="bg-gradient-to-tl from-blue-950 via-blue-800 to-blue-700 text-white pt-16 pb-8 font-[Poppins]">
+<footer class="bg-gradient-to-tl from-blue-950 via-blue-900 to-blue-800 text-white pt-16 pb-8 font-[Poppins]">
     <div class="container mx-auto px-8 lg:px-28">
         <div class="flex flex-col md:flex-row gap-12 mb-12">
             
@@ -6,11 +6,11 @@
                 <div class="flex items-center gap-3 rounded-lg w-fit">
                     <img src="{{ asset('img/logo-hmjti.png') }}" alt="Logo HMJTI" class="h-12 w-auto">
                     <div class="flex flex-col">
-                        <span class="text-sm font-semibold uppercase leading-tight">Himpunan Mahasiswa Jurusan</span>
-                        <span class="text-[10px] text-blue-200 uppercase tracking-widest">Teknologi Informasi</span>
+                        <span class="text-sm text-blue-200 uppercase leading-tight">Himpunan Mahasiswa Jurusan</span>
+                        <span class="text-md -mt-1 font-semibold uppercase tracking-widest">Teknologi Informasi</span>
                     </div>
                 </div>
-                <p class="text-blue-100 text-sm leading-relaxed mt-2">
+                <p class="text-blue-100 text-sm leading-relaxed mt-2 text-justify">
                     Wadah aspirasi dan kreativitas mahasiswa Jurusan Teknologi Informasi Politeknik Negeri Bali. Menuju organisasi yang inovatif dan kolaboratif.
                 </p>
             </div>
@@ -18,10 +18,10 @@
             <div class="md:w-1/7">
                 <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Tautan Penting</h4>
                 <ul class="flex flex-col gap-3 text-sm text-blue-100">
-                    <li><a href="/" class="hover:text-white hover:translate-x-2 transition-all inline-block">Beranda</a></li>
-                    <li><a href="#tentang" class="hover:text-white hover:translate-x-2 transition-all inline-block">Tentang Kami</a></li>
-                    <li><a href="#bidang" class="hover:text-white hover:translate-x-2 transition-all inline-block">Struktur Bidang</a></li> 
-                    <li><a href="/blog" class="hover:text-white hover:translate-x-2 transition-all inline-block">Berita & Blog</a></li>
+                    <li><a href="{{ route('welcome') }}" class="hover:text-white hover:translate-x-2 transition-all inline-block">Beranda</a></li>
+                    <li><a href="#profil" class="hover:text-white hover:translate-x-2 transition-all inline-block">Profil</a></li>
+                    <li><a href="#programkerja" class="hover:text-white hover:translate-x-2 transition-all inline-block">Program Kerja</a></li> 
+                    <li><a href="{{ route('blog-all') }}" class="hover:text-white hover:translate-x-2 transition-all inline-block">Blog & Informasi</a></li>
                 </ul>
             </div>
 
@@ -35,7 +35,7 @@
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-envelope"></i>
                         <span>hmjteknologiinformasi@pnb.ac.id</span>
-                    </div>
+                    </div> 
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-phone"></i>
                         <span>+62 812 3456 7890</span>
@@ -47,14 +47,14 @@
                 <div class="flex gap-4 justify-between">
                     <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Ikuti Kami</h4>
                     <div class="flex gap-4 mb-6">
-                        <a href="#" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.instagram.com/hmjti_pnb" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="#" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
-                            <i class="fab fa-youtube text-xl"></i>
-                        </a>
-                        <a href="#" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.tiktok.com/@hmjti.pnb" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@HMJTeknologiInformasi" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                            <i class="fab fa-youtube text-xl"></i>
                         </a>
                     </div> 
                 </div> 
@@ -66,11 +66,11 @@
             </div>
         </div>
 
-        <div class="border-t border-blue-700 pt-8 text-center">
+        <div class="border-t border-blue-800 pt-8 text-center">
             <p class="text-sm text-blue-100">
-                HMJ Teknologi Informasi Politeknik Negeri Bali &copy; {{ date('Y') }}. All rights reserved. 
+                HMJ Teknologi Informasi Politeknik Negeri Bali &copy; {{ date('Y') }} - All rights reserved. 
                 <br class="md:hidden"> 
-                Created by <span><a href="https://www.instagram.com/dndyprd/">Dandy</a></span> & <span><a href="https://www.instagram.com/yogadinantakom/">Yoga.</a></span>
+                Created by <span class="text-blue-300"><a href="https://www.instagram.com/dndyprd/">Dandy</a></span> & <span class="text-blue-300"><a href="https://www.instagram.com/yogadinantakom/">Yoga.</a></span>
             </p>
         </div>
     </div>

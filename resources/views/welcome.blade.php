@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-{{-- BIDANG SECTION --}} 
+{{-- HOME SECTION --}} 
 <section id="home" class="relative h-screen overflow-hidden flex items-center"> 
     {{-- Background Image --}}
     <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
@@ -42,7 +42,7 @@
 
 
 {{-- ABOUT SECTION --}}
-<section id="profil" class="bg-slate-100 px-6 lg:px-28 py-20">
+<section id="profil" class="bg-slate-50 px-6 lg:px-28 py-20">
     <div class="max-w-7xl mx-auto text-center">
         <span class="block text-sm uppercase tracking-widest text-blue-600 mb-3">
             Tentang Kami
@@ -64,7 +64,7 @@
 </section>
 
 {{-- BIDANG SECTION --}}
-<section id="program-kerja" class="relative py-20 px-6 lg:px-28 bg-slate-50 overflow-hidden">
+<section id="programkerja" class="relative py-20 px-8 lg:px-28 bg-slate-50 overflow-x-hidden">
 
     {{-- BACKGROUND VARIATION --}} 
     <div class="absolute top-0 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
@@ -104,61 +104,56 @@
             @endforeach
         </div>
 
- {{-- CONTENT BIDANG --}}
-@foreach($bidangs as $bidang)
-    <div id="bidang{{ $bidang['number'] }}"
-        class="content-bidang {{ $bidang['number'] == 1 ? 'block' : 'hidden' }}">
+        {{-- CONTENT BIDANG --}}
+        @foreach($bidangs as $bidang)
+            <div id="bidang{{ $bidang['number'] }}"
+                class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col md:flex-row gap-12 items-center">
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                {{-- INFO BIDANG --}}
+                <div class="md:w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
+                    <h4 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-8">
+                        Informasi & Program Kerja<br>
+                        <span class="text-blue-600 mt-2">
+                            {{ $bidang['name'] }}
+                        </span>
+                    </h4>
 
-            {{-- SPACER (desktop only) --}}
-            <div class="hidden lg:block lg:col-span-1"></div>
+                    <p class="text-gray-600 text-md md:text-lg leading-relaxed text-justify">
+                        {{ $bidang['description'] }}
+                    </p>
+                </div>
 
-            {{-- INFO BIDANG (CENTER & BIG) --}}
-            <div class="lg:col-span-6 text-center lg:text-left font-[Poppins] animate-fade-slide">
-                <h4 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-8 leading-tight">
-                    Informasi & Program Kerja <br>
-                    <span class="text-blue-600">
-                        {{ $bidang['name'] }}
-                    </span>
-                </h4>
+                {{-- PROKER --}}
+                <div class="md:w-3/7 flex flex-col gap-4">
+                    @foreach($bidang['prokers'] as $index => $proker)
+                        <details
+                            name="proker-bidang-{{ $bidang['number'] }}"
+                            class="group bg-white rounded-2xl border border-gray-100 shadow-sm
+                                   open:shadow-md transition-all duration-300"
+                            {{ $index == 0 ? 'open' : '' }}>
 
-                <p class="text-gray-600 text-lg md:text-xl leading-relaxed text-justify lg:text-left max-w-3xl mx-auto lg:mx-0">
-                    {{ $bidang['description'] }}
-                </p>
-            </div>
+                            {{-- SUMMARY --}}
+                            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none
+                                             hover:bg-slate-50 rounded-2xl transition">
+                                <span class="text-lg font-semibold text-gray-800">
+                                    {{ $proker['display_name'] }}
+                                </span>
 
-            {{-- PROKER --}}
-            <div class="lg:col-span-5 flex flex-col gap-4">
-                @foreach($bidang['prokers'] as $index => $proker)
-                    <details
-                        name="proker-bidang-{{ $bidang['number'] }}"
-                        class="group bg-white rounded-2xl border border-gray-100 shadow-sm
-                               open:shadow-md transition-all duration-300"
-                        {{ $index === 0 ? 'open' : '' }}>
+                                <span
+                                    class="w-9 h-9 rounded-full bg-blue-50 text-blue-600
+                                           flex items-center justify-center
+                                           group-open:bg-blue-600 group-open:text-white
+                                           transition-all duration-300">
+                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                                </span>
+                            </summary>
 
-                        <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none
-                                         hover:bg-slate-50 rounded-2xl transition">
-                            <span class="text-base md:text-lg font-semibold text-gray-800">
-                                {{ $proker['display_name'] }}
-                            </span>
-
-                            <span
-                                class="w-9 h-9 rounded-full bg-blue-50 text-blue-600
-                                       flex items-center justify-center
-                                       group-open:bg-blue-600 group-open:text-white
-                                       transition-all duration-300">
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
-                            </span>
-                        </summary>
-
-                        <div class="px-6 pb-6 pt-4 text-gray-600 leading-relaxed border-t border-gray-100">
-                            {{ $proker['description'] }}
-                        </div>
-                    </details>
-                @endforeach
-            </div>
-
+                            {{-- CONTENT --}}
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100">
+                                {{ $proker['description'] }}
+                            </div>
+                        </details>
+                    @endforeach
                 </div>
             </div>
         @endforeach
@@ -180,7 +175,7 @@
             </h3>
         </div>
 
-        <p class="text-gray-600 max-w-md text-right">
+        <p class="text-gray-600 max-w-md md:text-right">
             Dokumentasi dan cerita singkat kegiatan HMJ Teknologi Informasi Politeknik Negeri Bali.
         </p>
     </div>
@@ -240,10 +235,10 @@
                         </h5>
 
                        <a href="{{ route('blog-details', $blog['slug']) }}"
-   class="mt-2 text-sm text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
-    Lihat Detail
-    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-</a>
+                            class="mt-2 text-sm text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
+                            Lihat Detail
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </a>
 
                     </div>
                 </div>

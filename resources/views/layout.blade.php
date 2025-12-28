@@ -39,5 +39,6 @@
     </body> 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> 
     <script src="{{ asset('js/fontaws.js') }}"></script> 
+    <script src="{{ asset('js/navbar.js') }}"></script>
     @stack('scripts')
 </html>
