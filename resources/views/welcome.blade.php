@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-{{-- BIDANG SECTION --}} 
+{{-- HOME SECTION --}} 
 <section id="home" class="relative h-screen overflow-hidden flex items-center"> 
     {{-- Background Image --}}
     <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
@@ -42,7 +42,7 @@
 
 
 {{-- ABOUT SECTION --}}
-<section id="profil" class="bg-slate-100 px-6 lg:px-28 py-20">
+<section id="profil" class="bg-slate-50 px-6 lg:px-28 py-20">
     <div class="max-w-7xl mx-auto text-center">
         <span class="block text-sm uppercase tracking-widest text-blue-600 mb-3">
             Tentang Kami
@@ -64,7 +64,7 @@
 </section>
 
 {{-- BIDANG SECTION --}}
-<section id="program-kerja" class="relative py-20 px-6 lg:px-28 bg-slate-50 overflow-hidden">
+<section id="programkerja" class="relative py-20 px-8 lg:px-28 bg-slate-50 overflow-x-hidden">
 
     {{-- BACKGROUND VARIATION --}} 
     <div class="absolute top-0 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
@@ -110,8 +110,8 @@
                 class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col md:flex-row gap-12 items-center">
 
                 {{-- INFO BIDANG --}}
-                <div class="w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
-                    <h4 class="text-3xl md:text-4xl font-extrabold text-gray-900  mb-8">
+                <div class="md:w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
+                    <h4 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-8">
                         Informasi & Program Kerja<br>
                         <span class="text-blue-600 mt-2">
                             {{ $bidang['name'] }}
@@ -124,7 +124,7 @@
                 </div>
 
                 {{-- PROKER --}}
-                <div class="w-3/7 flex flex-col gap-4">
+                <div class="md:w-3/7 flex flex-col gap-4">
                     @foreach($bidang['prokers'] as $index => $proker)
                         <details
                             name="proker-bidang-{{ $bidang['number'] }}"
@@ -175,7 +175,7 @@
             </h3>
         </div>
 
-        <p class="text-gray-600 max-w-md text-right">
+        <p class="text-gray-600 max-w-md md:text-right">
             Dokumentasi dan cerita singkat kegiatan HMJ Teknologi Informasi Politeknik Negeri Bali.
         </p>
     </div>
@@ -235,10 +235,10 @@
                         </h5>
 
                        <a href="{{ route('blog-details', $blog['slug']) }}"
-   class="mt-2 text-sm text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
-    Lihat Detail
-    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-</a>
+                            class="mt-2 text-sm text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
+                            Lihat Detail
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        </a>
 
                     </div>
                 </div>

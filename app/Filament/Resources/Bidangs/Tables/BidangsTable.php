@@ -26,10 +26,10 @@ class BidangsTable
                     // FORMAT ID
                     ->formatStateUsing(function ($state) {
                         $bidang = [
-                            1 => 'Inti',
-                            2 => 'Bidang 1',
-                            3 => 'Bidang 2',
-                            4 => 'Bidang 3',
+                            0 => 'Inti',
+                            1 => 'Bidang 1',
+                            2 => 'Bidang 2',
+                            3 => 'Bidang 3',
                         ];
                         
                         return $bidang[$state] ?? 'Tidak Diketahui';
@@ -37,10 +37,10 @@ class BidangsTable
                     ->badge()
                     ->color(function ($state) {
                         $colors = [
-                            1 => 'success',
-                            2 => 'info',
-                            3 => 'danger',
-                            4 => 'warning',
+                            0 => 'success',
+                            1 => 'info',
+                            2 => 'danger',
+                            3 => 'warning',
                         ];
                         
                         return $colors[$state] ?? 'gray';

@@ -4,10 +4,10 @@
             
             <div class="flex items-center space-x-4">
                 <img src="{{ asset('img/logo-hmjti.png') }}" alt="HMJTI PNB" class="h-10 md:h-14 w-auto">
-                <div class="hidden md:block border-l-2 border-gray-400 h-10 mr-4"></div>
+                <div class="hidden md:block border-l-2 border-gray-400 h-9 mr-4"></div>
                 <div class="flex flex-col">
-                    <span class="text-gray-900 text-[10px] md:text-xs tracking-widest uppercase">HIMPUNAN MAHASISWA JURUSAN</span>
-                    <span class="text-lg md:text-2xl font-semibold text-blue-600 tracking-tighter uppercase">TEKNOLOGI INFORMASI</span>
+                    <span class="text-gray-900 text-[10px] md:text-sm tracking-widest uppercase">HIMPUNAN MAHASISWA JURUSAN</span>
+                    <span class="-mt-1 text-lg md:text-2xl font-semibold text-blue-700 tracking-tighter uppercase">TEKNOLOGI INFORMASI</span>
                 </div>
             </div>
 
