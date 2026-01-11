@@ -13,7 +13,7 @@ class BlogController extends Controller
     /**
      * METHOD GET DATA
      */
-    public static function getData($limit = null)
+    public static function getData($limit = null, $search = null)
     {
         $query = Blog::select([
                 'id', 'title', 'thumbnail', 'slug', 'content', 
@@ -22,6 +22,13 @@ class BlogController extends Controller
             ->with(['prokers:id,slug,name', 'blog_gallery:blog_id,photo'])
             ->where('status', 'published')  
             ->orderBy('start_date', 'desc');
+
+        if ($search) {
+            $query->where(function($q) use ($search) {
+                $q->where('title', 'like', '%' . $search . '%')
+                  ->orWhere('content', 'like', '%' . $search . '%');
+            });
+        }
 
         if ($limit) {
             $query->limit($limit);
@@ -37,9 +44,10 @@ class BlogController extends Controller
     /**
      * BLOG (AFTER EVENT)
      */
-    public function index()
+    public function index(\Illuminate\Http\Request $request)
     {
-        $blogs = self::getData();   
+        $search = $request->input('search');
+        $blogs = self::getData(null, $search);   
         return view('blogs', [ 
             'blogs' => $blogs
         ]);   

@@ -93,7 +93,7 @@ class BlogForm
                             return "{$slug}_{$timestamp}.{$extension}";
                         }
                     )
-                    ->maxSize(5120)
+                    ->maxSize(2048)
                     ->image()
                     ->required()
                     ->columnSpanFull(),
@@ -111,7 +111,7 @@ class BlogForm
                     ])
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('blogs/attachments') 
-                    ->fileAttachmentsMaxSize(1500) 
+                    ->fileAttachmentsMaxSize(2048) 
                     ->columnSpanFull(),
                 
                 // GALLERY IMAGE
@@ -139,6 +139,7 @@ class BlogForm
                                 'image/webp',
                                 'image/gif',
                             ])
+                            ->maxSize(2048)
                             ->getUploadedFileNameForStorageUsing(
                                 // CUSTOM FILENAME
                                 function (TemporaryUploadedFile $file, $get, $set): string { 

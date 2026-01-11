@@ -20,7 +20,7 @@
         </h1>
 
         <div class="flex items-center justify-center text-gray-200 gap-4 text-lg">
-            <span class="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-2xl shadow-2xl italic">
+            <span class="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-2xl shadow-2xl">
                 <i class="fa-regular fa-calendar"></i>
                 {{ $blogs['date'] }}
             </span>
@@ -31,7 +31,7 @@
 {{-- CONTENT SECTION --}}
 <section class="py-16 px-6 lg:px-64 bg-white font-[Poppins]">
     <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
-        {!! nl2br(e($blogs['content'])) !!}
+        {!! $blogs['content'] !!}
     </div>
 </section>
 

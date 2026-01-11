@@ -19,9 +19,14 @@
                 <a href="/#prestasi" class="text-blue-950 font-medium hover:text-blue-700 px-3 py-1 rounded-xl transition">Prestasi</a>
                 <a href="{{ route('blog-all') }}" class="text-blue-950 font-medium hover:text-blue-700 px-3 py-1 rounded-xl transition">Blog & Informasi</a>
                 
-                <button class="text-blue-950 hover:text-blue-700 pl-4">
-                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
-                </button>
+                <form action="{{ route('blog-all') }}" method="GET" class="relative group flex items-center ml-4">
+                    <input type="text" name="search" 
+                        class="w-0 group-hover:w-32 focus:w-32 md:w-0 md:group-hover:w-48 md:focus:w-48 transition-all duration-500 ease-in-out bg-transparent border-b border-transparent focus:border-blue-700 group-hover:border-blue-700 outline-none text-blue-950 text-sm" 
+                        placeholder="Cari..." autocomplete="off">
+                    <button type="submit" class="text-blue-950 hover:text-blue-700 pl-2">
+                        <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                    </button>
+                </form>
             </nav>
 
             <div class="lg:hidden flex items-center">
@@ -40,10 +45,12 @@
             <a href="/#prestasi" class="text-blue-950 font-medium hover:bg-blue-50 px-4 py-2 rounded-lg">Prestasi</a>
             <a href="{{ route('blog-all') }}" class="text-blue-950 font-medium hover:bg-blue-50 px-4 py-2 rounded-lg">Blog & Informasi</a>
             <hr>
-            <div class="flex items-center px-4 py-2">
-                <i class="fa-solid fa-magnifying-glass mr-3 text-blue-950"></i>
-                <span class="text-blue-950 font-medium">Cari Informasi...</span>
-            </div>
+            <form action="{{ route('blog-all') }}" method="GET" class="flex items-center px-4 py-2 border border-gray-200 rounded-lg mx-2">
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass mr-3 text-blue-950"></i>
+                </button>
+                <input type="text" name="search" class="text-blue-950 font-medium w-full bg-transparent outline-none placeholder-blue-950/70" placeholder="Cari Informasi...">
+            </form>
         </div>
     </div>
 </header>
