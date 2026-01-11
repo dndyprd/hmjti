@@ -64,6 +64,7 @@ class BlogController extends Controller
                     'start_date', 'end_date', 'status', 'proker_id'
                 ])
                 ->where('slug', $slug)
+                ->where('status', 'published')
                 ->with(['prokers:id,slug,name', 'blog_gallery:blog_id,photo'])
                 ->firstOrFail(); 
 
@@ -71,10 +72,8 @@ class BlogController extends Controller
             $blog = $this->formatBlogData($blog);
             
             return view('blog-details', ['blogs' => $blog]);
-        } catch (ModelNotFoundException $e) { 
-            return response()->json(['error' => 'Blog tidak ditemukan'], 404);
         } catch (Exception $e) {  
-            return response()->json(['error' => 'Terjadi kesalahan: ' . $e->getMessage()], 500);
+            return response()->view('notfound', [], 404);
         }
     }  
     
