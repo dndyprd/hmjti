@@ -1,13 +1,14 @@
-@extends('layout')
+@extends('layout') 
 
 @section('content')
 {{-- HERO SECTION --}}
 <section class="relative h-[55vh] flex items-center justify-center overflow-hidden">
     {{-- Background Image dengan Overlay --}}
     <div class="absolute inset-0 z-0">
-        <img src="{{ $blogs[0]['thumbnail'] }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
-        <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 
-                via-blue-800/60  to-transparent z-10"></div>
+        @if(isset($blogs[0]))
+            <img src="{{ $blogs[0]->thumbnail }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
+        @endif
+        <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
     </div>
 
     {{-- Hero Content --}}
@@ -28,7 +29,6 @@
     <div class="absolute top-0 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 -right-32 w-[420px] h-[420px] bg-sky-300/30 rounded-full blur-3xl"></div>
 
-    <!-- Subtle Grid Pattern -->
     <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
  
     <div class="relative z-10">
@@ -41,17 +41,19 @@
                     data-page="{{ $page }}">
                     
                     <div class="w-full overflow-hidden aspect-video rounded-sm">
-                        <img class="group-hover:scale-105 transition duration-200 w-full h-full object-cover" src="{{ $blog['thumbnail'] }}" alt="{{ $blog['title'] }}">
+                        <img class="group-hover:scale-105 transition duration-200 w-full h-full object-cover" 
+                             src="{{ $blog->thumbnail }}" 
+                             alt="{{ $blog->title }}">
                     </div> 
 
                     <div class="mt-2 px-2 flex flex-col grow gap-2">
                         <div class="flex items-center min-h-12"> 
-                            <h5 class="text-2xl text-blue-700 font-semibold line-clamp-2">{{ $blog['title'] }}</h5>  
+                            <h5 class="text-2xl text-blue-700 font-semibold line-clamp-2">{{ $blog->title }}</h5>  
                         </div>
-                        <p class="text-gray-600 text-base grow">{{ $blog['excerpt'] }}</p> 
+                        <p class="text-gray-600 text-base grow">{{ $blog->excerpt }}</p> 
                         
                         <div class="mt-4">
-                            <a href="{{ route('blog-details', $blog['slug']) }}" class="float-right inline-block bg-blue-700 hover:bg-blue-800 px-6 py-2 text-white rounded-md transition-colors font-medium">
+                            <a href="{{ route('blog-details', $blog->slug) }}" class="float-right inline-block bg-blue-700 hover:bg-blue-800 px-6 py-2 text-white rounded-md transition-colors font-medium">
                                 Lihat Detail →
                             </a>
                         </div>
@@ -68,5 +70,5 @@
 @endsection 
 
 @push('scripts')
-    <script src="{{ asset('/js/blogs.js')}}"></script>
+    <script src="{{ asset('/js/blogs.js')}}"></script> 
 @endpush

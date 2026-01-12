@@ -4,11 +4,25 @@
     <head>
         {{-- Meta Tag --}}
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
-        <meta name="description" content="Himpunan Mahasiswa Jurusan Teknologi Informasi, Keluarga Besar Mahasiswa, Politeknik Negeri Bali">
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
         
-        <title>{{ config('app.name', 'HMJ Teknologi Informasi PNB') }}</title> 
+        <meta name="description" content="@yield('meta_description', 'Himpunan Mahasiswa Jurusan Teknologi Informasi (HMJ TI) Politeknik Negeri Bali merupakan organisasi kemahasiswaan yang menjadi wadah pengembangan potensi')"> 
+        <meta name="keywords" content="HMJ TI, HMJ Teknologi Informasi, HMJ Teknologi Informasi PNB, HMJ TI PNB, HMJ TI KBM PNB, Politeknik Negeri Bali, Himpunan Mahasiswa Jurusan Teknologi Informasi, PNB, @yield('additional_keywords')">  
+        
+        <meta property="og:title" content="@yield('title')">
+        <meta property="og:url" content="{{ url()->current() }}">
+        <meta property="og:image" content="{{ asset('img/logo-hmjti.png') }}">
+        <meta name="twitter:image" content="{{ asset('img/logo-hmjti.png') }}"> 
+        <meta itemprop="image" content="{{ asset('img/logo-hmjti.png') }}">
+        <meta name="google-site-verification" content="J2GC4ibLJc5asAj7f8RKaNZOddaS2V3Uy8MRKrYOpXo" />
+        
+        <title>@yield('title', 'HMJ Teknologi Informasi PNB')</title> 
+        
+        {{-- Favicon --}}
+        <link rel="icon" type="image/png" href="{{ asset('img/logo-hmjti.png') }}">
         <link rel="shortcut icon" href="{{ asset('img/logo-hmjti.png') }}" type="image/x-icon"> 
+        <link rel="apple-touch-icon" href="{{ asset('img/logo-hmjti.png') }}">
+        
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">

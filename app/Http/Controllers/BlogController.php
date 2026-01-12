@@ -5,14 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Blog; 
 use Carbon\Carbon;
 use Exception;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {    
-    /**
-     * METHOD GET DATA
-     */
     public static function getData($limit = null, $search = null)
     {
         $query = Blog::select([
@@ -34,80 +31,53 @@ class BlogController extends Controller
             $query->limit($limit);
         }
 
-        $blogs = $query->get();
- 
-        return $blogs->map(function($blog) {
-            return self::formatBlogData($blog);
-        });
+        return $query->get()->map(fn($blog) => self::formatBlogData($blog));
     }
 
-    /**
-     * BLOG (AFTER EVENT)
-     */
-    public function index(\Illuminate\Http\Request $request)
+    public function index(Request $request)
     {
         $search = $request->input('search');
         $blogs = self::getData(null, $search);   
-        return view('blogs', [ 
-            'blogs' => $blogs
-        ]);   
+        return view('blogs', ['blogs' => $blogs]);   
     }
 
-    /**
-     * DETAIL BLOG
-     */
     public function show($slug)
     {
         try {
-            $blog = Blog::select([
-                    'id', 'title', 'thumbnail', 'slug', 'content', 
-                    'start_date', 'end_date', 'status', 'proker_id'
-                ])
-                ->where('slug', $slug)
+            $blog = Blog::where('slug', $slug)
                 ->where('status', 'published')
                 ->with(['prokers:id,slug,name', 'blog_gallery:blog_id,photo'])
                 ->firstOrFail(); 
 
-            // Format Data Blog Detail
-            $blog = $this->formatBlogData($blog);
+            $formattedBlog = self::formatBlogData($blog);
             
-            return view('blog-details', ['blogs' => $blog]);
+            return view('blog-details', ['blog' => $formattedBlog]);
         } catch (Exception $e) {  
             return response()->view('notfound', [], 404);
         }
     }  
     
-    /**
-     * METHOD FORMAT DATA BLOG
-     */
     public static function formatBlogData($blog)
     {
-        // Format tanggal
         $startDate = Carbon::parse($blog->start_date);
         $endDate = Carbon::parse($blog->end_date);
         
-        // Custom Tanggal
-        if ($startDate->eq($endDate)) { 
-            $date = $startDate->translatedFormat('d F Y');  
-        } else { 
-            $date = $startDate->translatedFormat('d F Y') . ' - ' . 
-                    $endDate->translatedFormat('d F Y'); 
-        } 
+        $date = $startDate->eq($endDate) 
+            ? $startDate->translatedFormat('d F Y') 
+            : $startDate->translatedFormat('d F Y') . ' - ' . $endDate->translatedFormat('d F Y'); 
 
         $cleanText = html_entity_decode(strip_tags($blog->content));
         
-        return [ 
-            'title' => $blog->title,
-            'thumbnail' => asset('storage/' . $blog->thumbnail), 
-            'slug' => $blog->slug, 
-            'content' => $blog->content,
-            'excerpt' => Str::limit($cleanText, 80),
+        return (object) [ 
+            'title'        => $blog->title,
+            'thumbnail'    => asset('storage/' . $blog->thumbnail), 
+            'slug'         => $blog->slug, 
+            'content'      => $blog->content,
+            'excerpt'      => Str::limit($cleanText, 80),
             'long_excerpt' => Str::limit($cleanText, 260),
-            'date' => $date, 
-            'proker' => $blog->prokers->slug ?? 'Tidak ada proker',  
-            'gallery'   => $blog->blog_gallery->map(function ($item) {
-                return asset('storage/' . $item->photo);
-            })->toArray(), 
+            'date'         => $date, 
+            'proker_name'  => $blog->prokers->name ?? 'Umum',  
+            'gallery'      => $blog->blog_gallery->map(fn($item) => asset('storage/' . $item->photo))->toArray(), 
         ];
     } 
 }
