@@ -23,7 +23,125 @@
     </div>
 </section>
 
-{{-- ABOUT & BIDANG SECTION --}} 
+{{-- ABOUT SECTION --}}
+<section id="profil" class="bg-slate-50 px-6 lg:px-28 py-20">
+    <div class="max-w-7xl mx-auto text-center">
+        <span class="block text-sm uppercase tracking-widest text-blue-600 mb-3">
+            Tentang Kami
+        </span>
+
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-8">
+            HMJ <span class="text-blue-700">Teknologi Informasi</span><br>
+            Politeknik Negeri Bali
+        </h3>
+
+        <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+            Himpunan Mahasiswa Jurusan Teknologi Informasi (HMJ TI) Politeknik Negeri Bali
+            merupakan organisasi kemahasiswaan yang menjadi wadah pengembangan potensi,
+            aspirasi, serta kreativitas mahasiswa di bidang akademik maupun non-akademik.
+            HMJ TI berperan aktif dalam menyelenggarakan kegiatan yang mendukung
+            peningkatan kompetensi, solidaritas, dan profesionalisme mahasiswa Teknologi Informasi.
+        </p>
+    </div>
+</section>
+
+{{-- BIDANG SECTION --}}
+<section id="programkerja" class="relative py-20 px-8 lg:px-28 bg-slate-50 overflow-x-hidden">
+
+    {{-- BACKGROUND VARIATION --}} 
+    <div class="absolute top-0 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 -right-32 w-[420px] h-[420px] bg-sky-300/30 rounded-full blur-3xl"></div>
+
+    <!-- Subtle Grid Pattern -->
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
+
+    {{-- CONTENT WRAPPER --}}
+    <div class="relative z-10">
+
+        {{-- HEADING --}}
+        <div class="text-center mb-8">
+            <span class="block text-sm uppercase tracking-widest text-blue-600 mb-2">
+                Struktur Organisasi
+            </span>
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                Bidang - Bidang <br>HMJ 
+                <span class="text-blue-700"> Teknologi Informasi</span>
+            </h3>
+        </div>
+
+        {{-- LIST BIDANG (TAB) --}}
+        <div class="flex flex-wrap justify-center gap-3 mb-16">
+            @foreach($bidangs as $bidang)
+                <button
+                    id="btn{{ $bidang['number'] }}"
+                    onclick="bidangSort({{ $bidang['number'] }})"
+                    class="btn-bidang px-5 py-2 rounded-xl text-sm font-semibold
+                        border border-blue-700 cursor-pointer
+                        {{ $bidang['number'] == 1
+                            ? 'bg-blue-700 text-slate-100'
+                            : 'text-blue-700 ' }}
+                        transition-all duration-300">
+                    {{ $bidang['name'] }}
+                </button>
+            @endforeach
+        </div>
+
+        {{-- CONTENT BIDANG --}}
+        @foreach($bidangs as $bidang)
+            <div id="bidang{{ $bidang['number'] }}"
+                class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col md:flex-row gap-12 items-center">
+
+                {{-- INFO BIDANG --}}
+                <div class="md:w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
+                    <h4 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-8">
+                        Informasi & Program Kerja<br>
+                        <span class="text-blue-600 mt-2">
+                            {{ $bidang['name'] }}
+                        </span>
+                    </h4>
+
+                    <p class="text-gray-600 text-md md:text-lg leading-relaxed text-justify">
+                        {{ $bidang['description'] }}
+                    </p>
+                </div>
+
+                {{-- PROKER --}}
+                <div class="md:w-3/7 flex flex-col gap-4">
+                    @foreach($bidang['prokers'] as $index => $proker)
+                        <details
+                            name="proker-bidang-{{ $bidang['number'] }}"
+                            class="group bg-white rounded-2xl border border-gray-100 shadow-sm
+                                   open:shadow-md transition-all duration-300"
+                            {{ $index == 0 ? 'open' : '' }}>
+
+                            {{-- SUMMARY --}}
+                            <summary class="flex items-center justify-between px-6 py-4 cursor-pointer list-none
+                                             hover:bg-slate-50 rounded-2xl transition">
+                                <span class="text-lg font-semibold text-gray-800">
+                                    {{ $proker['display_name'] }}
+                                </span>
+
+                                <span
+                                    class="w-9 h-9 rounded-full bg-blue-50 text-blue-600
+                                           flex items-center justify-center
+                                           group-open:bg-blue-600 group-open:text-white
+                                           transition-all duration-300">
+                                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform"></i>
+                                </span>
+                            </summary>
+
+                            {{-- CONTENT --}}
+                            <div class="px-6 pb-6 text-gray-600 leading-relaxed border-t border-gray-100">
+                                {{ $proker['description'] }}
+                            </div>
+                        </details>
+                    @endforeach
+                </div>
+            </div>
+        @endforeach
+
+    </div>
+</section>
 
 {{-- BLOG SECTION --}}
 <section id="blog" class="py-20 px-6 lg:px-28 bg-slate-50 font-[Poppins]">
