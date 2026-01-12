@@ -225,3 +225,7 @@
     </div>
 </section> 
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/welcome.js') }}"></script> 
+@endpush
