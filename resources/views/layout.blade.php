@@ -10,9 +10,9 @@
         <meta name="keywords" content="HMJ TI, HMJ Teknologi Informasi, HMJ Teknologi Informasi PNB, HMJ TI PNB, HMJ TI KBM PNB, Politeknik Negeri Bali, Himpunan Mahasiswa Jurusan Teknologi Informasi, PNB, @yield('additional_keywords')">  
         
         <meta property="og:title" content="@yield('title')">
-        <meta property="og:url" content="{{ url()->current() }}">
-        <meta property="og:image" content="{{ asset('img/logo-hmjti.png') }}">
-        <meta name="twitter:image" content="{{ asset('img/logo-hmjti.png') }}"> 
+        <meta property="og:url" content="{{ url()->current() }}"> 
+        <meta property="og:image" content="@yield('meta_image', asset('img/logo-hmjti.png'))">
+        <meta name="twitter:image" content="@yield('meta_image', asset('img/logo-hmjti.png'))"> 
         <meta itemprop="image" content="{{ asset('img/logo-hmjti.png') }}">
         <meta name="google-site-verification" content="J2GC4ibLJc5asAj7f8RKaNZOddaS2V3Uy8MRKrYOpXo" />
         

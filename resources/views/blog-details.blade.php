@@ -1,8 +1,9 @@
 @extends('layout')
 
-@section('title', $blog->title)
+@section('title', 'HMJ Teknologi Informasi PNB - ' . $blog->title)
 @section('meta_description', $blog->long_excerpt)
-@section('additional_keywords', $blog->title)
+@section('additional_keywords', $blog->proker_name . ', ' . $blog->title)
+@section('meta_image', $blog->thumbnail)
 
 @section('content')
 <section class="relative h-[75vh] flex items-center justify-center overflow-hidden">
