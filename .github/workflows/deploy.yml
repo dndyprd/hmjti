@@ -35,3 +35,12 @@ jobs:
           storage/framework/cache/**
           storage/logs/**
           .env
+        filter: |
+          !vendor/filament/support/resources/lang/!(en|id)/**
+          !vendor/filament/filament/resources/lang/!(en|id)/**
+          !vendor/filament/tables/resources/lang/!(en|id)/**
+          !vendor/filament/forms/resources/lang/!(en|id)/**
+          !vendor/filament/notifications/resources/lang/!(en|id)/**
+          !vendor/filament/actions/resources/lang/!(en|id)/**
+          !vendor/filament/widgets/resources/lang/!(en|id)/**
+          !vendor/filament/infolists/resources/lang/!(en|id)/**
