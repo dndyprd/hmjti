@@ -64,7 +64,7 @@ class BlogController extends Controller
         
         $date = $startDate->eq($endDate) 
             ? $startDate->translatedFormat('d F Y') 
-            : $startDate->translatedFormat('d F Y') . ' - ' . $endDate->translatedFormat('d F Y'); 
+            : $startDate->translatedFormat('d F') . ' - ' . $endDate->translatedFormat('d F Y'); 
 
         $cleanText = html_entity_decode(strip_tags($blog->content));
         
@@ -76,7 +76,7 @@ class BlogController extends Controller
             'excerpt'      => Str::limit($cleanText, 85),
             'long_excerpt' => Str::limit($cleanText, 260),
             'date'         => $date, 
-            'proker_name'  => $blog->prokers->name ?? 'Umum',  
+            'proker_name'  => $blog->prokers->slug ?? 'Umum',  
             'gallery'      => $blog->blog_gallery->map(fn($item) => asset('storage/' . $item->photo))->toArray(), 
         ];
     } 

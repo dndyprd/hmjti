@@ -6,7 +6,7 @@
 @section('meta_image', $blog->thumbnail)
 
 @section('content')
-<section class="relative h-[75vh] flex items-center justify-center overflow-hidden">
+<section class="relative h-[60vh] md:h-[75vh] flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         <img src="{{ $blog->thumbnail }}" class="w-full h-full object-cover" alt="{{ $blog->title }}">
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
@@ -17,11 +17,11 @@
             {{ $blog->proker_name }}
         </span>
 
-        <h1 class="text-4xl lg:text-6xl font-bold text-white mt-4 mb-6 leading-tight max-w-4xl mx-auto">
+        <h1 class="text-3xl lg:text-4xl xl:text-6xl font-bold text-white mt-4 mb-6 leading-tight max-w-4xl mx-auto">
             {{ $blog->title }}
         </h1>
 
-        <div class="flex items-center justify-center text-gray-200 gap-4 text-lg">
+        <div class="flex items-center justify-center text-gray-200 gap-4 text-sm md:text-lg">
             <span class="flex items-center gap-2 bg-blue-500 px-4 py-2 rounded-2xl shadow-2xl">
                 <i class="fa-regular fa-calendar"></i>
                 {{ $blog->date }}
@@ -30,17 +30,17 @@
     </div>
 </section>
 
-<section class="py-16 px-6 lg:px-64 bg-white font-[Poppins]">
-    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
+<section class="py-14 md:py-16 px-12 md:px-24 lg:px-48 bg-white font-[Poppins]">
+    <div class="text-base md:text-lg prose prose-lg max-w-none text-gray-700 leading-relaxed text-justify">
         {!! $blog->content !!}
     </div>
 </section>
 
-<section class="py-16 px-6 lg:px-28 bg-slate-50 overflow-hidden">
+<section class="py-16 px-8 md:px-6 lg:px-28 bg-slate-50 overflow-hidden">
     <div class="flex items-center justify-between mb-10">
         <div>
-            <h3 class="text-3xl font-bold text-gray-900">Dokumentasi Kegiatan</h3>
-            <p class="text-gray-500 mt-2">Momen keseruan selama acara berlangsung</p>
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900">Dokumentasi Kegiatan</h3>
+            <p class="text-base md:text-lg text-gray-500 mt-2">Momen keseruan selama acara berlangsung</p>
         </div>
 
         <div class="flex gap-3">

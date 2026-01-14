@@ -6,20 +6,20 @@
     {{-- Background Image dengan Overlay --}}
     <div class="absolute inset-0 z-0">
         @if(isset($blogs[0]))
-            <img src="{{ $blogs[0]->thumbnail }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
+            <img src="{{ $blogs[1]->thumbnail }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
         @endif
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
     </div>
 
     {{-- Hero Content --}}
     <div class="relative text-center px-6 lg:px-28 z-20 mt-12">
-        <span class="px-4 py-1 bg-blue-600 text-white text-md font-semibold rounded-xl uppercase tracking-wider">
+        <span class="px-4 py-1 bg-blue-600 text-white text-xs md:text-md font-semibold rounded-xl uppercase tracking-wider">
             Blog & Informasi
         </span>
         <h1 class="text-4xl lg:text-6xl font-bold text-white my-2 leading-tight max-w-4xl">
             HMJ Teknologi Informasi
         </h1> 
-        <p class="text-white text-base lg:text-lg">Dokumentasi dan cerita singkat kegiatan HMJ Teknologi Informasi Politeknik Negeri Bali.</p>
+        <p class="text-white text-sm md:text-base lg:text-lg">Dokumentasi dan cerita singkat kegiatan HMJ Teknologi Informasi Politeknik Negeri Bali.</p>
     </div>
 </section>
 

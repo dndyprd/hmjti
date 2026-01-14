@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- HOME SECTION --}} 
-<section id="home" class="relative h-screen overflow-hidden flex items-center"> 
+<section id="home" class="relative h-[65vh] md:h-screen overflow-hidden flex items-center"> 
     {{-- Background Image --}}  
     <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
          src="{{ asset('img/home.jpeg') }}" 
@@ -11,9 +11,9 @@
     <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
 
     <div class="absolute bottom-24 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center text-center text-white">
-        <h3 class="italic font-semibold text-4xl mb-4">"Salam Satu Frekuensi"</h3>
+        <h3 class="italic font-semibold text-xl md:text-3xl xl:text-4xl mb-4">"Salam Satu Frekuensi"</h3>
         <a href="#profil" class="flex flex-col items-center group">
-            <span class="text-base mb-8 uppercase border-2 border-white hover:bg-white hover:text-blue-700 rounded-xl px-4 py-2">
+            <span class="text-sm md:text-base mb-8 uppercase border-2 border-white hover:bg-white hover:text-blue-700 rounded-xl px-4 py-2">
                 Scroll ke bawah
             </span>
             <i class="fa-solid fa-chevron-down text-2xl animate-bounce group-hover:text-blue-300 transition"></i>
@@ -22,18 +22,18 @@
 </section>
 
 {{-- ABOUT SECTION --}}
-<section id="profil" class="bg-slate-50 px-6 lg:px-28 py-20">
+<section id="profil" class="bg-slate-50 px-6 md:px-16 lg:px-32 py-16 md:py-24 xl:py-32">
     <div class="max-w-7xl mx-auto text-center">
-        <span class="block text-sm uppercase tracking-widest text-blue-600 mb-3">
+        <span class="block text-sm md:text-base uppercase tracking-widest text-blue-600 mb-4">
             Tentang Kami
         </span>
 
-        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-8">
+        <h3 class="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-8">
             HMJ <span class="text-blue-700">Teknologi Informasi</span><br>
             Politeknik Negeri Bali
         </h3>
 
-        <p class="text-gray-700 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-700 text-base md:text-lg xl:text-xl leading-relaxed max-w-5xl mx-auto">
             Himpunan Mahasiswa Jurusan Teknologi Informasi (HMJ TI) Politeknik Negeri Bali
             merupakan organisasi kemahasiswaan yang menjadi wadah pengembangan potensi,
             aspirasi, serta kreativitas mahasiswa di bidang akademik maupun non-akademik.
@@ -44,7 +44,7 @@
 </section>
 
 {{-- BIDANG SECTION --}}
-<section id="programkerja" class="relative py-20 px-8 lg:px-28 bg-slate-50 overflow-x-hidden">
+<section id="programkerja" class="relative py-24 xl:py-32 px-6 md:px-16 lg:px-32 bg-slate-50 overflow-x-hidden">
 
     {{-- BACKGROUND VARIATION --}} 
     <div class="absolute top-0 -left-32 w-[520px] h-[520px] bg-blue-300/30 rounded-full blur-3xl"></div>
@@ -54,26 +54,26 @@
     <div class="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none"></div>
 
     {{-- CONTENT WRAPPER --}}
-    <div class="relative z-10">
+    <div class="relative z-10 max-w-7xl mx-auto">
 
         {{-- HEADING --}}
-        <div class="text-center mb-8">
-            <span class="block text-sm uppercase tracking-widest text-blue-600 mb-2">
+        <div class="text-center mb-6 md:mb-8">
+            <span class="block text-xs md:text-sm lg:text-base uppercase tracking-widest text-blue-600 mb-2">
                 Struktur Organisasi
             </span>
-            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+            <h3 class="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight">
                 Bidang - Bidang <br>HMJ 
                 <span class="text-blue-700"> Teknologi Informasi</span>
             </h3>
         </div>
 
         {{-- LIST BIDANG (TAB) --}}
-        <div class="flex flex-wrap justify-center gap-3 mb-16">
+        <div class="flex flex-wrap justify-center gap-3 mb-8 md:mb-16">
             @foreach($bidangs as $bidang)
                 <button
                     id="btn{{ $bidang['number'] }}"
                     onclick="bidangSort({{ $bidang['number'] }})"
-                    class="btn-bidang px-5 py-2 rounded-xl text-sm font-semibold
+                    class="btn-bidang px-6 py-2.5 rounded-xl text-xs md:text-base font-semibold
                         border border-blue-700 cursor-pointer
                         {{ $bidang['number'] == 1
                             ? 'bg-blue-700 text-slate-100'
@@ -87,24 +87,24 @@
         {{-- CONTENT BIDANG --}}
         @foreach($bidangs as $bidang)
             <div id="bidang{{ $bidang['number'] }}"
-                class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col md:flex-row gap-12 items-center">
+                class="content-bidang {{ $bidang['number'] == 1 ? 'flex' : 'hidden' }} flex-col lg:flex-row gap-10 md:gap-14 lg:gap-20 items-center">
 
                 {{-- INFO BIDANG --}}
-                <div class="md:w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
-                    <h4 class="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4 md:mb-8">
+                <div class="lg:w-4/7 flex flex-col justify-center font-[poppins] animate-fade-slide">
+                    <h4 class="text-2xl md:text-3xl xl:text-4xl font-extrabold text-gray-900 mb-6 md:mb-10">
                         Informasi & Program Kerja<br>
-                        <span class="text-blue-600 mt-2">
+                        <span class="text-blue-600 mt-2 block">
                             {{ $bidang['name'] }}
                         </span>
                     </h4>
 
-                    <p class="text-gray-600 text-md md:text-lg leading-relaxed text-justify">
+                    <p class="text-gray-600 text-base md:text-base xl:text-lg leading-relaxed text-justify">
                         {{ $bidang['description'] }}
                     </p>
                 </div>
 
                 {{-- PROKER --}}
-                <div class="md:w-3/7 flex flex-col gap-4">
+                <div class="lg:w-3/7 flex flex-col gap-5 w-full">
                     @foreach($bidang['prokers'] as $index => $proker)
                         <details
                             name="proker-bidang-{{ $bidang['number'] }}"
@@ -142,15 +142,16 @@
 </section>
 
 {{-- BLOG SECTION --}}
-<section id="blog" class="py-20 px-6 lg:px-28 bg-slate-50 font-[Poppins]">
-    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+<section id="blog" class="py-24 xl:py-32 px-6 md:px-16 lg:px-32 bg-slate-50 font-[Poppins]">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 md:gap-8 mb-10 md:mb-16">
         <div>
-            <span class="text-sm uppercase tracking-widest text-blue-600">After Event</span>
-            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+            <span class="text-sm md:text-base uppercase tracking-widest text-blue-600">After Event</span>
+            <h3 class="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-900 mt-2">
                 HMJ <span class="text-blue-700">Teknologi Informasi</span>
             </h3>
         </div>
-        <p class="text-gray-600 max-w-md md:text-right">
+        <p class="text-gray-600 max-w-md md:text-right text-base md:text-lg">
             Dokumentasi dan cerita singkat kegiatan HMJ Teknologi Informasi Politeknik Negeri Bali.
         </p>
     </div>
@@ -169,11 +170,11 @@
                     </span>
                 </div>
         
-                <div class="p-8 flex flex-col grow">
-                    <h4 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                <div class="p-6 md:p-8 xl:p-10 flex flex-col grow">
+                    <h4 class="text-lg md:text-xl xl:text-2xl font-bold text-gray-900 mb-4">
                         {{ $blogs[0]->title }}
                     </h4>
-                    <p class="text-gray-600 leading-relaxed line-clamp-3 mb-6">
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-3 mb-8">
                         {{ $blogs[0]->long_excerpt }}
                     </p>
                     

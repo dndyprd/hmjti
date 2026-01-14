@@ -1,13 +1,13 @@
 <footer class="bg-gradient-to-tl from-blue-950 via-blue-900 to-blue-800 text-white pt-16 pb-8 font-[Poppins]">
-    <div class="container mx-auto px-8 lg:px-28">
-        <div class="flex flex-col md:flex-row gap-12 mb-12">
+    <div class="container mx-auto px-8 md:px-0 xl:px-28">
+        <div class="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-x-12 gap-y-10 lg:gap-12 mb-12">
             
-            <div class="md:w-2/7 flex flex-col gap-4">
+            <div class="md:w-[calc(50%-1.5rem)] lg:w-2/7 flex flex-col gap-4">
                 <div class="flex items-center gap-3 rounded-lg w-fit">
                     <img src="{{ asset('img/logo-hmjti.png') }}" alt="Logo HMJTI" class="h-12 w-auto">
                     <div class="flex flex-col">
-                        <span class="text-sm text-blue-200 uppercase leading-tight">Himpunan Mahasiswa Jurusan</span>
-                        <span class="text-md -mt-1 font-semibold uppercase tracking-widest">Teknologi Informasi</span>
+                        <span class="text-xs lg:text-sm text-blue-200 uppercase leading-tight">Himpunan Mahasiswa Jurusan</span>
+                        <span class="text-sm lg:text-base -mt-1 font-semibold uppercase tracking-widest">Teknologi Informasi</span>
                     </div>
                 </div>
                 <p class="text-blue-100 text-sm leading-relaxed mt-2 text-justify">
@@ -15,7 +15,7 @@
                 </p>
             </div>
 
-            <div class="md:w-1/7">
+            <div class="md:w-[calc(50%-1.5rem)] lg:w-1/7">
                 <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Tautan Penting</h4>
                 <ul class="flex flex-col gap-3 text-sm text-blue-100">
                     <li><a href="{{ route('welcome') }}" class="hover:text-white hover:translate-x-2 transition-all inline-block">Beranda</a></li>
@@ -25,7 +25,7 @@
                 </ul>
             </div>
 
-            <div class="md:w-2/7">
+            <div class="md:w-[calc(50%-1.5rem)] lg:w-2/7">
                 <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Hubungi Kami</h4>
                 <div class="flex flex-col gap-4 text-sm text-blue-100">
                     <div class="flex items-center gap-3">
@@ -43,7 +43,7 @@
                 </div>
             </div>
 
-            <div class="md:w-2/7">
+            <div class="md:w-[calc(50%-1.5rem)] lg:w-2/7">
                 <div class="flex gap-4 justify-between">
                     <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Ikuti Kami</h4>
                     <div class="flex gap-4 mb-6">
