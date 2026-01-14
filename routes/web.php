@@ -12,8 +12,5 @@ Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog-details'
 Route::get('blog.after_event', function () {
     return view('after-event');
 })->name('after-event');
-
-Route::fallback(function () {
-    return response()->view('notfound', [], 404);
-});
+ 
 

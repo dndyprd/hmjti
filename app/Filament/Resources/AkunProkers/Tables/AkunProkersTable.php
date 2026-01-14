@@ -17,9 +17,14 @@ class AkunProkersTable
         return $table
             ->columns([
                 TextColumn::make('name')
+                    ->label('Name')
                     ->searchable(),
                 TextColumn::make('email')
-                    ->searchable(), 
+                    ->label('Email')
+                    ->searchable(),
+                TextColumn::make('phone')
+                    ->label('Contact Person')
+                    ->searchable(),
             ])
             ->filters([
                 //

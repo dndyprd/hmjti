@@ -38,7 +38,7 @@
                     </div> 
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-phone"></i>
-                        <span>+62 831-1932-1251</span>
+                        <span>{{ \App\Models\User::where('email', 'admin@hmjti.com')->first()?->phone ?? '+62 831-1932-1251' }}</span>
                     </div>
                 </div>
             </div>

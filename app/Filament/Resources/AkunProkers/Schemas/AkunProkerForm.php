@@ -19,6 +19,10 @@ class AkunProkerForm
                     ->email()
                     ->required()
                     ->maxLength(255),
+                TextInput::make('phone')
+                    ->label('Contact Number')
+                    ->tel()
+                    ->maxLength(25),
                 TextInput::make('password')
                     ->password()
                     ->dehydrated(fn ($state) => filled($state))

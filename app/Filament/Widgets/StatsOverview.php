@@ -16,12 +16,12 @@ class StatsOverview extends StatsOverviewWidget
     protected function getStats(): array
     {
         return [
-            Stat::make('Total Blogs Published', Blog::where('status', 'published')->count())
+            Stat::make('Total Blog Publish', Blog::where('status', 'published')->count())
                 ->description('Blog yang telah di publikasi')
                 ->descriptionIcon('heroicon-m-document-check')
                 ->color('info'),  
 
-            Stat::make('Total Event This Year', Blog::where('status', 'published')->whereYear('start_date', now()->year)->count())
+            Stat::make('Total Event Tahun Ini', Blog::where('status', 'published')->whereYear('start_date', now()->year)->count())
                 ->description('Event yang berjalan pada tahun ' . now()->year)
                 ->descriptionIcon('heroicon-m-calendar')
                 ->color('success'),
