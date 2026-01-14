@@ -11,9 +11,9 @@
         
         <meta property="og:title" content="@yield('title')">
         <meta property="og:url" content="{{ url()->current() }}"> 
-        <meta property="og:image" content="@yield('meta_image', asset('img/logo-hmjti.png'))">
-        <meta name="twitter:image" content="@yield('meta_image', asset('img/logo-hmjti.png'))"> 
-        <meta itemprop="image" content="{{ asset('img/logo-hmjti.png') }}">
+        <meta property="og:image" content="@yield('meta_image', asset('img/home.jpeg'))">
+        <meta name="twitter:image" content="@yield('meta_image', asset('img/home.jpeg'))"> 
+        <meta itemprop="image" content="{{ asset('img/home.jpeg') }}">
         <meta name="google-site-verification" content="J2GC4ibLJc5asAj7f8RKaNZOddaS2V3Uy8MRKrYOpXo" />
         
         <title>@yield('title', 'HMJ Teknologi Informasi PNB')</title> 

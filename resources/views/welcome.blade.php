@@ -3,12 +3,10 @@
 @section('content')
 {{-- HOME SECTION --}} 
 <section id="home" class="relative h-screen overflow-hidden flex items-center"> 
-    {{-- Background Image --}} 
-    @if(isset($blogs[1]))
+    {{-- Background Image --}}  
     <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
-         src="{{ $blogs[1]->thumbnail }}" 
-         alt="HMJ Teknologi Informasi">
-    @endif
+         src="{{ asset('img/home.jpeg') }}" 
+         alt="HMJ Teknologi Informasi"> 
     
     <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
 

@@ -21,8 +21,8 @@ class AkunProkerForm
                     ->maxLength(255),
                 TextInput::make('password')
                     ->password()
-                    ->required()
-                    ->hiddenOn('edit'),
+                    ->dehydrated(fn ($state) => filled($state))
+                    ->required(fn (string $operation): bool => $operation === 'create'),
                 Hidden::make('role')
                     ->default('proker'),
             ]);

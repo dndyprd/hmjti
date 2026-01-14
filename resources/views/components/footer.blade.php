@@ -38,7 +38,7 @@
                     </div> 
                     <div class="flex items-center gap-3">
                         <i class="fa-solid fa-phone"></i>
-                        <span>+62 812 3456 7890</span>
+                        <span>+62 831-1932-1251</span>
                     </div>
                 </div>
             </div>

@@ -47,6 +47,16 @@ class BidangResource extends Resource
     {
         return BidangsTable::configure($table);
     }
+    
+    public static function canViewAny(): bool
+    {
+        return auth()->user()->role === 'admin';
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()->role === 'admin';
+    }
 
     public static function getRelations(): array
     {

@@ -20,8 +20,12 @@ use Illuminate\Database\Eloquent\Builder;
 class AkunProkerResource extends Resource
 {
     protected static ?string $model = User::class;
+ 
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-user-plus';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $navigationLabel = 'Akun Proker'; 
+    protected static ?string $modelLabel = 'Akun Proker'; 
+    protected static ?string $pluralModelLabel = 'Akun Proker'; 
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -44,6 +48,16 @@ class AkunProkerResource extends Resource
     public static function table(Table $table): Table
     {
         return AkunProkersTable::configure($table);
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()->role === 'admin';
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()->role === 'admin';
     }
 
     public static function getRelations(): array

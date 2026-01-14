@@ -73,7 +73,7 @@ class BlogController extends Controller
             'thumbnail'    => asset('storage/' . $blog->thumbnail), 
             'slug'         => $blog->slug, 
             'content'      => $blog->content,
-            'excerpt'      => Str::limit($cleanText, 80),
+            'excerpt'      => Str::limit($cleanText, 85),
             'long_excerpt' => Str::limit($cleanText, 260),
             'date'         => $date, 
             'proker_name'  => $blog->prokers->name ?? 'Umum',  
