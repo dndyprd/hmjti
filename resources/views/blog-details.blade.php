@@ -43,7 +43,7 @@
             <p class="text-base md:text-lg text-gray-500 mt-2">Momen keseruan selama acara berlangsung</p>
         </div>
 
-        <div class="flex gap-3">
+        <div class="flex gap-3 z-20">
             <button onclick="prevSlide()" class="w-12 h-12 rounded-full border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all flex items-center justify-center">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>

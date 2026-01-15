@@ -9,7 +9,7 @@ use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
 use Filament\Tables\Table;
 use Filament\Tables\Columns\TextColumn;
-
+use Filament\Tables\Columns\ColorColumn;
 class AkunProkersTable
 {
     public static function configure(Table $table): Table
@@ -17,14 +17,19 @@ class AkunProkersTable
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label('Name')
+                    ->label('Nama')
                     ->searchable(),
                 TextColumn::make('email')
                     ->label('Email')
                     ->searchable(),
                 TextColumn::make('phone')
-                    ->label('Contact Person')
+                    ->label('Kontak Person')
                     ->searchable(),
+                ColorColumn::make('color')
+                    ->copyable()
+                    ->copyMessage('Copied!')
+                    ->copyMessageDuration(1500)
+                    ->label('Warna Unik')
             ])
             ->filters([
                 //

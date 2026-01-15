@@ -5,7 +5,7 @@
 <section id="home" class="relative h-[65vh] md:h-screen overflow-hidden flex items-center"> 
     {{-- Background Image --}}  
     <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
-         src="{{ asset('img/home.jpeg') }}" 
+         src="{{ asset('img/home.webp') }}" 
          alt="HMJ Teknologi Informasi"> 
     
     <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>

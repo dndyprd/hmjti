@@ -23,12 +23,7 @@ return new class extends Migration
             // Contact Person
             $table->foreignId('user_id')->nullable()->constrained('users')->onDelete('set null');
             $table->string('contact_name')->nullable();
-            $table->string('contact_phone')->nullable();
-            
-            // Additional Info
-            $table->enum('status', ['pending', 'approved', 'rejected', 'cancelled'])->default('pending');
-            $table->string('color')->default('#3b82f6');
-            $table->text('notes')->nullable();
+            $table->string('contact_phone')->nullable();  
             
             $table->timestamps();
         });
