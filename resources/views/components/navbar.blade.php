@@ -23,7 +23,7 @@
                     <input type="text" name="search" 
                         class="w-0 group-hover:w-32 focus:w-32 md:w-0 md:group-hover:w-48 md:focus:w-48 transition-all duration-500 ease-in-out bg-transparent border-b border-transparent focus:border-blue-700 group-hover:border-blue-700 outline-none text-blue-950 text-sm" 
                         placeholder="Cari..." autocomplete="off">
-                    <button type="submit" class="text-blue-950 hover:text-blue-700 pl-2">
+                    <button type="submit" aria-label="Cari" class="text-blue-950 hover:text-blue-700 pl-2">
                         <i class="fa-solid fa-magnifying-glass text-xl"></i>
                     </button>
                 </form>

@@ -47,20 +47,20 @@
                 <div class="flex gap-4 justify-between">
                     <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Ikuti Kami</h4>
                     <div class="flex gap-4 mb-6">
-                        <a href="https://www.instagram.com/hmjti_pnb" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.instagram.com/hmjti_pnb" alt="Instagram HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@hmjti.pnb" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.tiktok.com/@hmjti.pnb" alt="Tiktok HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-tiktok text-xl"></i>
                         </a>
-                        <a href="https://www.youtube.com/@HMJTeknologiInformasi" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.youtube.com/@HMJTeknologiInformasi" alt="Youtube HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-youtube text-xl"></i>
                         </a>
                     </div> 
                 </div> 
                 <div class="w-full h-32 bg-blue-800/50 rounded-lg overflow-hidden relative border border-blue-700">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d828.8852295863894!2d115.16202741736684!3d-8.798765622885352!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c13ee9d753%3A0x6c05042449b50f81!2sPoliteknik%20Negeri%20Bali!5e0!3m2!1sen!2sid!4v1766238297592!5m2!1sen!2sid" 
-                        class="absolute inset-0 w-full h-full" 
+                    <iframe title="Lokasi HMJ Teknologi Informasi PNB" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d828.8852295863894!2d115.16202741736684!3d-8.798765622885352!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd244c13ee9d753%3A0x6c05042449b50f81!2sPoliteknik%20Negeri%20Bali!5e0!3m2!1sen!2sid!4v1766238297592!5m2!1sen!2sid" 
+                        class="absolute inset-0 w-full h-[20vh] md:h-full" 
                         frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>

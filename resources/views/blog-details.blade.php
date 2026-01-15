@@ -58,7 +58,7 @@
             @foreach($blog->gallery as $url)
                 <div class="slider-item p-3 min-w-full md:min-w-[50%] lg:min-w-[33.333%]">
                     <div class="h-64 lg:h-80 rounded-xl overflow-hidden shadow-md">
-                        <img src="{{ $url }}" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Gallery {{ $blog->title }}">
+                        <img src="{{ $url }}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" alt="Gallery {{ $blog->title }}">
                     </div>
                 </div>
             @endforeach

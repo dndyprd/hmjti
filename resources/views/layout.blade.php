@@ -22,8 +22,7 @@
         <link rel="icon" type="image/png" href="{{ asset('img/logo-hmjti.png') }}">
         <link rel="shortcut icon" href="{{ asset('img/logo-hmjti.png') }}" type="image/x-icon"> 
         <link rel="apple-touch-icon" href="{{ asset('img/logo-hmjti.png') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -32,6 +31,7 @@
 
         <noscript>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         </noscript>
         @vite(['resources/css/app.css', 'resources/js/app.js'])  
     </head>

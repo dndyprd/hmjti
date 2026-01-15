@@ -42,7 +42,7 @@
                     
                     <div class="w-full overflow-hidden aspect-video rounded-sm">
                         <img class="group-hover:scale-105 transition duration-200 w-full h-full object-cover" 
-                             src="{{ $blog->thumbnail }}" 
+                             src="{{ $blog->thumbnail }}" loading="lazy"
                              alt="{{ $blog->title }}">
                     </div> 
 

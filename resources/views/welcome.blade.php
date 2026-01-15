@@ -5,7 +5,7 @@
 <section id="home" class="relative h-[65vh] md:h-screen overflow-hidden flex items-center"> 
     {{-- Background Image --}}  
     <img class="absolute inset-0 w-full h-full object-cover grayscale z-0" 
-         src="{{ asset('img/home.webp') }}" 
+         src="{{ asset('img/home.webp') }}"
          alt="HMJ Teknologi Informasi"> 
     
     <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
@@ -162,7 +162,7 @@
         <div class="lg:col-span-2"> 
             <div class="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 <div class="relative aspect-video overflow-hidden">
-                    <img src="{{ $blogs[0]->thumbnail }}"
+                    <img src="{{ $blogs[0]->thumbnail }}" loading="lazy"
                          alt="{{ $blogs[0]->title }}"
                          class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500">
                     <span class="absolute top-4 left-4 bg-blue-600 text-white text-sm font-semibold px-4 py-1 rounded-lg">
@@ -197,8 +197,8 @@
                 {{-- Ganti <a> menjadi <div> dan beri posisi relative --}}
                 <div class="group relative flex gap-4 bg-white p-4 rounded-2xl shadow-sm hover:shadow-md transition-all">
                     <div class="w-28 h-20 rounded-xl overflow-hidden shrink-0">
-                        <img src="{{ $blog->thumbnail }}"
-                             alt="{{ $blog->title }}"
+                        <img src="{{ $blog->thumbnail }}" 
+                             alt="{{ $blog->title }}" loading="lazy"
                              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="flex flex-col">
