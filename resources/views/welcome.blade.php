@@ -28,10 +28,10 @@
             Tentang Kami
         </span>
 
-        <h3 class="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-8">
+        <h1 class="text-2xl md:text-3xl xl:text-4xl font-bold text-gray-900 leading-tight mb-8">
             HMJ <span class="text-blue-700">Teknologi Informasi</span><br>
             Politeknik Negeri Bali
-        </h3>
+        </h1>
 
         <p class="text-gray-700 text-base md:text-lg xl:text-xl leading-relaxed max-w-5xl mx-auto">
             Himpunan Mahasiswa Jurusan Teknologi Informasi (HMJ TI) Politeknik Negeri Bali

@@ -8,15 +8,15 @@ use App\Filament\Resources\Blogs\Pages\ListBlogs;
 use App\Filament\Resources\Blogs\Pages\ViewBlog;
 use App\Filament\Resources\Blogs\Schemas\BlogForm;
 use App\Filament\Resources\Blogs\Schemas\BlogInfolist;
-use App\Filament\Resources\Blogs\Tables\BlogsTable;
-use App\Models\Blog;
+use App\Filament\Resources\Blogs\Tables\BlogsTable; 
+use UnitEnum;
 use BackedEnum;
+use App\Models\Blog;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema; 
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use UnitEnum;
 
 class BlogResource extends Resource
 { 

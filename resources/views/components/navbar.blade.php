@@ -30,7 +30,7 @@
             </nav>
 
             <div class="xl:hidden flex items-center">
-                <button id="mobile-menu-button" class="text-blue-950 focus:outline-none p-2">
+                <button aria-label="Menu" id="mobile-menu-button" class="text-blue-950 focus:outline-none p-2">
                     <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
                 </button>
             </div>

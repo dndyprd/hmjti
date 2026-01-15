@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');  
             $table->text('description')->nullable();  
-            $table->date('event_date');
-            $table->time('start_time');
-            $table->time('end_time');
+            $table->date('event_date')->unique();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
             $table->string('location')->nullable();
             
             // Contact Person

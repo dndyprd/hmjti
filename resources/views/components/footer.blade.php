@@ -1,4 +1,4 @@
-<footer class="bg-gradient-to-tl from-blue-950 via-blue-900 to-blue-800 text-white pt-16 pb-8 font-[Poppins]">
+<footer id="contact" class="bg-gradient-to-tl from-blue-950 via-blue-900 to-blue-800 text-white pt-16 pb-8 font-[Poppins]">
     <div class="container mx-auto px-8 md:px-0 xl:px-28">
         <div class="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-x-12 gap-y-10 lg:gap-12 mb-12">
             
