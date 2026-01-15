@@ -47,13 +47,13 @@
                 <div class="flex gap-4 justify-between">
                     <h4 class="text-lg font-bold mb-6 border-b-2 border-blue-500 w-fit">Ikuti Kami</h4>
                     <div class="flex gap-4 mb-6">
-                        <a href="https://www.instagram.com/hmjti_pnb" alt="Instagram HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.instagram.com/hmjti_pnb" aria-label="Instagram HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-instagram text-xl"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@hmjti.pnb" alt="Tiktok HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.tiktok.com/@hmjti.pnb" aria-label="Tiktok HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-tiktok text-xl"></i>
                         </a>
-                        <a href="https://www.youtube.com/@HMJTeknologiInformasi" alt="Youtube HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
+                        <a href="https://www.youtube.com/@HMJTeknologiInformasi" aria-label="Youtube HMJTI" target="_blank" class="h-10 w-10 bg-white/10 flex items-center justify-center rounded-full hover:bg-blue-600 transition">
                             <i class="fab fa-youtube text-xl"></i>
                         </a>
                     </div> 

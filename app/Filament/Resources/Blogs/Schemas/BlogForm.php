@@ -73,9 +73,8 @@ class BlogForm
                         'image/png',
                         'image/jpeg',
                         'image/jpg',
-                        'image/webp',
-                        'image/gif',
-                    ])
+                        'image/webp', 
+                    ]) 
                     ->getUploadedFileNameForStorageUsing(
                         // CUSTOM FILENAME
                         function (TemporaryUploadedFile $file, $get, $set): string { 
@@ -93,7 +92,7 @@ class BlogForm
                             return "{$slug}_{$timestamp}.{$extension}";
                         }
                     )
-                    ->maxSize(2048)
+                    ->maxSize(750)
                     ->image()
                     ->required()
                     ->columnSpanFull(),
@@ -139,7 +138,7 @@ class BlogForm
                                 'image/webp',
                                 'image/gif',
                             ])
-                            ->maxSize(2048)
+                            ->maxSize(750)
                             ->getUploadedFileNameForStorageUsing(
                                 // CUSTOM FILENAME
                                 function (TemporaryUploadedFile $file, $get, $set): string { 
@@ -160,6 +159,8 @@ class BlogForm
                             )
                     ])   
                     ->required()
+                    ->minItems(4)
+                    ->maxItems(8)
                     ->grid(2)
                     ->defaultItems(4) 
                     ->addActionLabel('Tambah Foto')
