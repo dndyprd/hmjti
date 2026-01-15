@@ -14,7 +14,8 @@ class AkunProkersTable
 {
     public static function configure(Table $table): Table
     {
-        return $table
+        return $table 
+            ->defaultSort('name', 'asc')
             ->columns([
                 TextColumn::make('name')
                     ->label('Nama')
