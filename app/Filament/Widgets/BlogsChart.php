@@ -11,6 +11,11 @@ class BlogsChart extends ChartWidget
 
     protected int | string | array $columnSpan = 1;
 
+    public static function canView(): bool
+    {
+        return auth()->user()?->role === 'admin';
+    }
+
     protected ?string $heading = 'Blogs Per Proker';
 
     protected function getData(): array

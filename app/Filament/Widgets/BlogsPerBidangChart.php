@@ -11,6 +11,11 @@ class BlogsPerBidangChart extends ChartWidget
 
     protected int | string | array $columnSpan = 1;
 
+    public static function canView(): bool
+    {
+        return auth()->user()?->role === 'admin';
+    }
+
     protected ?string $heading = 'Blogs Per Bidang Chart';
 
     protected function getData(): array
