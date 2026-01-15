@@ -36,6 +36,7 @@ class BlogForm
                     })
                     ->searchable()
                     ->preload()
+                    ->required()
                     ->native(false),
                 // TANGGAL KEGIATAN & STATUS 
                 Grid::make(2) 
@@ -111,7 +112,8 @@ class BlogForm
                     ->fileAttachmentsDisk('public')
                     ->fileAttachmentsDirectory('blogs/attachments') 
                     ->fileAttachmentsMaxSize(2048) 
-                    ->columnSpanFull(),
+                    ->columnSpanFull() 
+                    ->required(),
                 
                 // GALLERY IMAGE
                 Repeater::make('blog_gallery')
