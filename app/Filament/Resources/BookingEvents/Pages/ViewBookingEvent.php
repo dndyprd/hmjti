@@ -13,7 +13,8 @@ class ViewBookingEvent extends ViewRecord
     protected function getHeaderActions(): array
     {
         return [
-            EditAction::make(),
+            EditAction::make()
+                ->visible(fn ($record) => auth()->user()->role === 'admin' || $record->user_id === auth()->id()),
         ];
     }
 }

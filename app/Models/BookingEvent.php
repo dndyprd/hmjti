@@ -12,9 +12,8 @@ class BookingEvent extends Model
     protected $fillable = [
         'title',
         'description',
-        'event_date',
-        'start_time',
-        'end_time',
+        'starts_at',
+        'ends_at',
         'location',
         'user_id',
         'contact_name',

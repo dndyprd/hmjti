@@ -24,7 +24,7 @@ class BookingEventResource extends Resource
     protected static string | UnitEnum | null $navigationGroup = 'Manajemen Konten';
 
     protected static ?string $model = BookingEvent::class;
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-calendar-days';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-calendar';
     protected static ?int $navigationSort = 1;
  
     protected static ?string $navigationLabel = 'Booking Event'; 
@@ -63,5 +63,15 @@ class BookingEventResource extends Resource
             'view' => ViewBookingEvent::route('/{record}'),
             'edit' => EditBookingEvent::route('/{record}/edit'),
         ];
+    }
+
+    public static function canEdit(\Illuminate\Database\Eloquent\Model $record): bool
+    {
+        return auth()->user()->role === 'admin' || $record->user_id === auth()->id();
+    }
+
+    public static function canDelete(\Illuminate\Database\Eloquent\Model $record): bool
+    {
+        return auth()->user()->role === 'admin' || $record->user_id === auth()->id();
     }
 }

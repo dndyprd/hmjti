@@ -54,9 +54,13 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                'throttle:15,1',
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])
+            ->plugin(
+                \Saade\FilamentFullCalendar\FilamentFullCalendarPlugin::make()
+            );
     }
 }

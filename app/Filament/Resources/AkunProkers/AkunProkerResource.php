@@ -20,8 +20,8 @@ use Illuminate\Database\Eloquent\Builder;
 
 class AkunProkerResource extends Resource
 { 
-    protected static string | UnitEnum | null $navigationGroup = 'Manajemen Konten';
-    protected static ?int $navigationSort = 2;
+    protected static string | UnitEnum | null $navigationGroup = 'Struktur Organisasi';
+    protected static ?int $navigationSort = 4;
 
     protected static ?string $model = User::class;
  

@@ -20,7 +20,7 @@ class BookingEventsTable
     public static function configure(Table $table): Table
     {
         return $table
-            ->defaultSort('event_date', 'desc')
+            ->defaultSort('starts_at', 'desc')
             ->modifyQueryUsing(function (Builder $query) {
                 if (auth()->user()->role !== 'admin') {
                     $query->where('user_id', auth()->id());
@@ -37,17 +37,19 @@ class BookingEventsTable
                     ->sortable()
                     ->visible(fn () => auth()->user()->role === 'admin'),
 
-                TextColumn::make('event_date')
-                    ->label('Tanggal')
-                    ->date('d F Y')
+                TextColumn::make('starts_at')
+                    ->label('Mulai')
+                    ->dateTime('d F Y H:i')
                     ->sortable(),
 
-                TextColumn::make('start_time')
-                    ->label('Jam Mulai')
-                    ->time('H:i'), 
+                TextColumn::make('ends_at')
+                    ->label('Selesai')
+                    ->dateTime('d F Y H:i')
+                    ->sortable(), 
 
                 TextColumn::make('contact_name')
-                    ->label('Penanggung Jawab')
+                    ->label('Penanggung Jawab') 
+                    ->visible(fn () => auth()->user()->role === 'admin')
                     ->searchable(),
 
                 TextColumn::make('contact_phone')
@@ -64,8 +66,10 @@ class BookingEventsTable
             ])
             ->recordActions([
                 ViewAction::make(),
-                EditAction::make(),
-                DeleteAction::make(),
+                EditAction::make()
+                    ->visible(fn ($record) => auth()->user()->role === 'admin' || $record->user_id === auth()->id()),
+                DeleteAction::make()
+                    ->visible(fn ($record) => auth()->user()->role === 'admin' || $record->user_id === auth()->id()),
             ])
             ->bulkActions([
                 BulkActionGroup::make([

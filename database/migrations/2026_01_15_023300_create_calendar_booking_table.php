@@ -10,14 +10,13 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
+    { 
         Schema::create('calendar_bookings', function (Blueprint $table) {
             $table->id();
             $table->string('title');  
-            $table->text('description')->nullable();  
-            $table->date('event_date')->unique();
-            $table->time('start_time')->nullable();
-            $table->time('end_time')->nullable();
+            $table->text('description')->nullable();   
+            $table->dateTime('starts_at')->nullable();
+            $table->dateTime('ends_at')->nullable();
             $table->string('location')->nullable();
             
             // Contact Person
