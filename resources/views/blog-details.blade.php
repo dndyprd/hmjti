@@ -44,10 +44,10 @@
         </div>
 
         <div class="flex gap-3 z-20">
-            <button onclick="prevSlide()" class="w-12 h-12 rounded-full border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all flex items-center justify-center">
+            <button id="prev-btn" onclick="prevSlide()" class="w-12 h-12 rounded-full border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all flex items-center justify-center">
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
-            <button onclick="nextSlide()" class="w-12 h-12 rounded-full border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all flex items-center justify-center">
+            <button id="next-btn" onclick="nextSlide()" class="w-12 h-12 rounded-full border-2 border-blue-700 text-blue-700 hover:bg-blue-700 hover:text-white transition-all flex items-center justify-center">
                 <i class="fa-solid fa-chevron-right"></i>
             </button>
         </div>

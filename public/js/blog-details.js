@@ -64,4 +64,43 @@ window.addEventListener('resize', () => {
     updateSliderPosition();
 });
 
-setInterval(nextSlide, 5000);
+const prevBtn = document.getElementById('prev-btn');
+const nextBtn = document.getElementById('next-btn');
+let autoSlideInterval;
+
+function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideInterval = setInterval(nextSlide, 5000);
+}
+
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+// Pause on hover over the slider track (items)
+track.addEventListener('mouseenter', stopAutoSlide);
+track.addEventListener('mouseleave', startAutoSlide);
+
+// Pause on hover over buttons
+if (prevBtn) {
+    prevBtn.addEventListener('mouseenter', stopAutoSlide);
+    prevBtn.addEventListener('mouseleave', startAutoSlide);
+    // Reset timer on click
+    prevBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        startAutoSlide();
+    });
+}
+
+if (nextBtn) {
+    nextBtn.addEventListener('mouseenter', stopAutoSlide);
+    nextBtn.addEventListener('mouseleave', startAutoSlide);
+    // Reset timer on click
+    nextBtn.addEventListener('click', () => {
+        stopAutoSlide();
+        startAutoSlide();
+    });
+}
+
+// Start the slider initially
+startAutoSlide();
