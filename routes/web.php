@@ -14,5 +14,5 @@ Route::middleware('throttle:20,1')->group(function () {
         return view('after-event');
     })->name('after-event');
 
-    Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
+    Route::get('/kalender', [CalendarController::class, 'index'])->name('calendar');
 });

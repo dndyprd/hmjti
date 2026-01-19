@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookingEvent; 
+use App\Models\Blog;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Str;
@@ -12,8 +13,7 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        $events = BookingEvent::where('status', 'published') 
-            ->get();
+        $events = BookingEvent::get();
 
         $events = $events->map(function ($event) {
             return [
@@ -27,8 +27,6 @@ class CalendarController extends Controller
             ];
         });
 
-        $blogs = \App\Models\Blog::latest()->take(3)->get();
-
-        return view('calendar', compact('events', 'blogs'));
+        return view('calendar', compact('events'));
     }
 }
