@@ -48,3 +48,97 @@
 .prose li p{
     margin: 0 !important;
 }
+
+/* Custom FullCalendar Styling to match Layout */
+:root {
+    --fc-border-color: #e5e7eb;
+    --fc-button-text-color: #fff;
+    --fc-button-bg-color: #2563eb;
+    --fc-button-border-color: #2563eb;
+    --fc-button-hover-bg-color: #1d4ed8;
+    --fc-button-hover-border-color: #1d4ed8;
+    --fc-button-active-bg-color: #1e40af;
+    --fc-button-active-border-color: #1e40af;
+    --fc-event-bg-color: #3b82f6;
+    --fc-event-border-color: #3b82f6;
+    --fc-today-bg-color: rgba(37, 99, 235, 0.05);
+}
+
+.fc {
+    font-family: 'Poppins', sans-serif;
+}
+
+.fc-button-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.fc-button-group > .fc-button {
+    margin: 0 !important;
+    border-radius: 0.5rem !important;
+}
+
+.fc-toolbar-title {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.fc-col-header-cell-cushion {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: 600;
+    color: #4b5563;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+}
+
+.fc-daygrid-day-number {
+    font-weight: 500;
+    color: #374151;
+    padding: 0.5rem 0.75rem !important; 
+}
+
+.fc-event {
+    cursor: pointer;
+    border: none !important;
+    padding: 2px 4px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.fc-event:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    filter: brightness(0.95);
+}
+
+.fc-button {
+    border-radius: 0.5rem !important;
+    font-weight: 500 !important;
+    padding: 0.5rem 1rem !important;
+    text-transform: capitalize;
+    transition: all 0.2s !important;
+}
+
+.fc-button:focus {
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5) !important;
+}
+
+/* Modal Styling */
+.fc-popover {
+    border-radius: 1rem !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #f3f4f6 !important;
+}
+
+.fc-popover-header {
+    background: #f9fafb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    padding: 0.75rem 1rem !important;
+}
