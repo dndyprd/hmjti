@@ -12,7 +12,7 @@
         }
 
         .fc .fc-toolbar-title {
-            font-size: 1.25rem !important; /* Perkecil judul Januari 2026 */
+            font-size: 1.25rem !important;
             font-weight: 600;
         }
         
@@ -26,6 +26,23 @@
         .fc-list-event-title {
             font-size: 0.85rem !important;
         }
+ 
+        .fc-list-event:hover td {
+            background-color: #2563eb !important;
+            transition: background-color 0.2s ease; 
+        }
+
+        .fc-list-event:hover .fc-list-event-title,
+        .fc-list-event:hover .fc-list-event-time,
+        .fc-list-event:hover .fc-event-title,
+        .fc-list-event:hover .fc-event-time {
+            color: #ffffff !important; 
+            text-decoration: none !important;
+        }
+
+        .fc-list-event:hover .fc-list-event-dot {
+            border-color: #ffffff !important;
+        }
 
         .fc .fc-button-primary {
             text-transform: capitalize;
@@ -36,7 +53,9 @@
         }
 
         .fc .fc-button-primary:hover {
-            background-color: #f3f4f6 !important;  
+            background-color: #e5e7eb !important;
+            border-color: #d1d5db !important;
+            color: #1f2937 !important;
         }
 
         .fc .fc-button-active {

@@ -106,21 +106,27 @@
 
     /* Force Blue Buttons */
 
-    .fc .fc-button-primary {
+    .fc .fc-button-primary,
+    .fc .fc-button {
         background-color: #2563eb !important;
         border-color: #2563eb !important;
         color: #ffffff !important;
     }
 
-    .fc .fc-button-primary:hover {
+    .fc .fc-button-primary:hover,
+    .fc .fc-button:hover {
         background-color: #1d4ed8 !important;
         border-color: #1d4ed8 !important;
+        color: #ffffff !important;
     }
 
     .fc .fc-button-primary:not(:disabled).fc-button-active, 
-    .fc .fc-button-primary:not(:disabled):active {
+    .fc .fc-button-primary:not(:disabled):active,
+    .fc .fc-button:not(:disabled).fc-button-active,
+    .fc .fc-button:not(:disabled):active {
         background-color: #1e40af !important;
         border-color: #1e40af !important;
+        color: #ffffff !important;
     }
 
     /* Fix Today Highlight Color */
@@ -156,18 +162,24 @@
         }
 
         .fc .fc-button {
-            font-size: 0.75rem !important; /* Smaller text */
-            padding: 0.4rem 0.8rem !important; /* Smaller padding */
+            font-size: 0.75rem !important;
+            padding: 0.4rem 0.8rem !important;
         }
     }
 
-    /* List View Styling */
     .fc-list {
         min-height: 400px;
     }
 
     .fc-list-event:hover td {
-        background-color: #f3f4f6 !important;
+        background-color: #2563eb !important;
+        transition: background-color 0.2s ease;
+    }
+
+    .fc-list-event:hover .fc-list-event-title,
+    .fc-list-event:hover .fc-list-event-time {
+        color: #ffffff !important; 
+        font-weight: 500;
     }
     
     .fc-list-day-cushion {
@@ -229,6 +241,7 @@
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 locale: 'id',
+                firstDay: 1,
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -251,7 +264,6 @@
                     }
                 },
                 eventClick: function(info) {
-                    // Empty to prevent default behavior or interference
                 },
                 eventMouseEnter: function(info) {
                     const event = info.event;
@@ -286,9 +298,6 @@
 
                     // Show Tooltip
                     tooltipEl.classList.remove('hidden');
-
-                    // Absolute Positioning (Same for Desktop and Mobile)
-                    // Reset any fixed positioning styles potentially left over
                     tooltipEl.style.position = 'absolute';
                     tooltipEl.style.transform = 'none';
                     tooltipEl.style.width = 'auto';
@@ -298,19 +307,16 @@
                     const rect = el.getBoundingClientRect();
                     const tooltipRect = tooltipEl.getBoundingClientRect(); 
                     
-                    // Calculate Top Center Position
                     let top = rect.top + window.scrollY - tooltipRect.height - 10;
                     let left = rect.left + window.scrollX + (rect.width / 2) - (tooltipRect.width / 2);
 
-                    // Boundary checks to keep inside screen
                     if (left < 10) left = 10;
                     if (left + tooltipRect.width > window.innerWidth - 10) left = window.innerWidth - tooltipRect.width - 10;
                     
                     tooltipEl.style.top = `${top}px`;
                     tooltipEl.style.left = `${left}px`;
                 },
-                eventMouseLeave: function(info) {
-                    // Hide tooltip on mouse leave
+                eventMouseLeave: function(info) { 
                     tooltipEl.classList.add('hidden');
                 },
                 eventContent: function(arg) {
