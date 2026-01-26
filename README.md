@@ -1,59 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# HMJ TI Website 🚀
 
+Selamat datang di repositori resmi **Website Himpunan Mahasiswa Jurusan Teknologi Informasi**. Platform ini dikembangkan sebagai pusat informasi, layanan mahasiswa, dan manajemen kegiatan organisasi yang modern dan terintegrasi.
+
+![Banner](https://via.placeholder.com/1200x400?text=HMJ+TI+Official+Website)
+
+## ✨ Tentang Proyek
+
+Website ini dibangun untuk mendigitalisasi berbagai aspek operasional HMJ TI, mulai dari penyebaran berita, manajemen agenda kemahasiswaan, hingga sistem administrasi internal. Dikembangkan dengan *stack* teknologi terkini untuk menjamin performa, keamanan, dan pengalaman pengguna yang optimal.
+
+### Fitur Unggulan
+
+- **🖥️ Modern & Responsif**: Antarmuka pengguna (UI) yang bersih dan estetik, dioptimalkan untuk berbagai perangkat (Desktop, Tablet, Mobile).
+- **🛠️ Admin Panel Powerful**: Mengelola konten, pengguna, dan data sistem dengan mudah menggunakan **Filament V4**.
+- **📅 Manajemen Event & Kalender**: Sistem *booking* acara dan jadwal kegiatan yang terintegrasi dengan tampilan kalender interaktif (*FullCalendar*).
+- **📰 Portal Berita & Blog**: Publikasi artikel terkini seputar teknologi, kegiatan jurusan, dan prestasi mahasiswa.
+- **🔐 Manajemen Akun & Role**: Sistem otentikasi aman dengan pembagian hak akses (Admin, Pengurus, User/Mahasiswa).
+- **👤 Profil Proker**: Halaman khusus untuk menampilkan program kerja unggulan himpunan.
+
+## 🛠️ Teknologi Utama
+
+Proyek ini dibangun di atas fondasi teknologi yang kuat dan modern:
+
+- **Framework**: [Laravel 12](https://laravel.com)
+- **Admin Panel**: [Filament PHP 4](https://filamentphp.com)
+- **Language**: PHP 8.2+
+- **Database**: MySQL
+- **Frontend Assets**: Tailwind CSS, Vite, Alpine.js
+- **Plugins**: `saade/filament-fullcalendar`, dan paket pendukung lainnya.
+
+## ⚙️ Instalasi & Menjalankan Lokal
+
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di mesin lokal Anda:
+
+### Prasyarat System
+- **PHP** >= 8.2
+- **Composer**
+- **Node.js** & **NPM**
+- **MySQL Database**
+
+### Langkah 1: Clone Repository
+```bash
+git clone https://github.com/username/hmjti.git
+cd hmjti
+```
+
+### Langkah 2: Install Dependencies
+Install paket PHP dan JavaScript yang dibutuhkan:
+```bash
+composer install
+npm install
+```
+
+### Langkah 3: Konfigurasi Environment
+Salin file konfigurasi contoh dan sesuaikan dengan database lokal Anda:
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+> ⚠️ **Penting**: Buka file `.env` dan pastikan konfigurasi `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD` sesuai dengan setting MySQL Anda.
+
+### Langkah 4: Migrasi Database
+Jalankan migrasi untuk membuat tabel-tabel database (dan seeder jika ada data awal):
+```bash
+php artisan migrate --seed
+```
+
+### Langkah 5: Jalankan Server
+Gunakan perintah berikut untuk menjalankan server pengembangan. Kami menyarankan menggunakan dua terminal atau tab terpisah.
+
+**Terminal 1 (Laravel Server):**
+```bash
+php artisan serve
+```
+
+**Terminal 2 (Vite Assets):**
+```bash
+npm run dev
+```
+
+### Langkah 6: Akses Aplikasi
+- **Halaman Utama**: Buka browser dan kunjungi `http://localhost:8000`
+- **Panel Admin**: Login sebagai admin di `http://localhost:8000/admin`
+
+## 🤝 Kontribusi
+
+Kami sangat terbuka untuk kontribusi! Jika Anda ingin membantu mengembangkan website ini:
+1. Fork repository ini.
+2. Buat branch fitur baru (`git checkout -b fitur-keren`).
+3. Commit perubahan Anda (`git commit -m 'Menambahkan fitur keren'`).
+4. Push ke branch (`git push origin fitur-keren`).
+5. Buat Pull Request.
+
+## 📄 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+
+---
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  Dibuat oleh <b>Tim Developer HMJ TI</b> - Dandy & Yoga.
 </p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

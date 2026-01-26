@@ -1,4 +1,4 @@
-@extends('layout') 
+@extends('layout')
 
 @section('content')
 {{-- HERO SECTION --}}
@@ -6,7 +6,9 @@
     {{-- Background Image dengan Overlay --}}
     <div class="absolute inset-0 z-0">
         @if(isset($blogs[0]))
-            <img src="{{ $blogs[1]->thumbnail }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
+            <img src="{{ $blogs[0]->thumbnail }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
+        @else
+            <img src="{{ asset('img/home.webp') }}" class="grayscale w-full h-full object-cover" alt="Blogs HMJ Teknologi Informasi PNB">
         @endif
         <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/80 via-blue-800/60 to-transparent z-10"></div>
     </div>
@@ -33,38 +35,42 @@
  
     <div class="relative z-10">
     {{-- GRID BLOG --}}
-        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            @foreach($blogs as $index => $blog)  
-                @php $page = floor($index / 6) + 1; @endphp
-                
-                <div class="blog-item group bg-white p-4 pb-8 rounded-md shadow-md flex flex-col h-full transition-all duration-300" 
-                    data-page="{{ $page }}">
+        @if($blogs->count() < 1)
+            <div class="text-slate-900">Tidak Ada Blog</div>
+        @else
+            <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach($blogs as $index => $blog)  
+                    @php $page = floor($index / 6) + 1; @endphp
                     
-                    <div class="w-full overflow-hidden aspect-video rounded-sm">
-                        <img class="group-hover:scale-105 transition duration-200 w-full h-full object-cover" 
-                             src="{{ $blog->thumbnail }}" loading="lazy"
-                             alt="{{ $blog->title }}">
-                    </div> 
-
-                    <div class="mt-2 px-2 flex flex-col grow gap-2">
-                        <div class="flex items-center min-h-12"> 
-                            <h5 class="text-2xl text-blue-700 font-semibold line-clamp-2">{{ $blog->title }}</h5>  
-                        </div>
-                        <p class="text-gray-600 text-base grow">{{ $blog->excerpt }}</p> 
+                    <div class="blog-item group bg-white p-4 pb-8 rounded-md shadow-md flex flex-col h-full transition-all duration-300" 
+                        data-page="{{ $page }}">
                         
-                        <div class="mt-4">
-                            <a href="{{ route('blog-details', $blog->slug) }}" class="float-right inline-block bg-blue-700 hover:bg-blue-800 px-6 py-2 text-white rounded-md transition-colors font-medium">
-                                Lihat Detail →
-                            </a>
-                        </div>
-                    </div> 
-                </div>
-            @endforeach
-        </div>
-        
-        <div id="pagination-js" class="mt-12 flex justify-center items-center gap-2">
-            {{-- Tombol akan di-generate oleh JS --}}
-        </div>
+                        <div class="w-full overflow-hidden aspect-video rounded-sm">
+                            <img class="group-hover:scale-105 transition duration-200 w-full h-full object-cover" 
+                                src="{{ $blog->thumbnail }}" loading="lazy"
+                                alt="{{ $blog->title }}">
+                        </div> 
+
+                        <div class="mt-2 px-2 flex flex-col grow gap-2">
+                            <div class="flex items-center min-h-12"> 
+                                <h5 class="text-2xl text-blue-700 font-semibold line-clamp-2">{{ $blog->title }}</h5>  
+                            </div>
+                            <p class="text-gray-600 text-base grow">{{ $blog->excerpt }}</p> 
+                            
+                            <div class="mt-4">
+                                <a href="{{ route('blog-details', $blog->slug) }}" class="float-right inline-block bg-blue-700 hover:bg-blue-800 px-6 py-2 text-white rounded-md transition-colors font-medium">
+                                    Lihat Detail →
+                                </a>
+                            </div>
+                        </div> 
+                    </div>
+                @endforeach
+            </div>
+            
+            <div id="pagination-js" class="mt-12 flex justify-center items-center gap-2">
+                {{-- Tombol akan di-generate oleh JS --}}
+            </div>
+        @endif
     </div>
 </section> 
 @endsection 
