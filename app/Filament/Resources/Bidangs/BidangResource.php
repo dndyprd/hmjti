@@ -17,6 +17,7 @@ use Filament\Schemas\Schema;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class BidangResource extends Resource
 {
@@ -50,12 +51,12 @@ class BidangResource extends Resource
     
     public static function canViewAny(): bool
     {
-        return auth()->user()->role === 'admin';
+        return Auth::user()->role === 'admin';
     }
 
     public static function canCreate(): bool
     {
-        return auth()->user()->role === 'admin';
+        return Auth::user()->role === 'admin';
     }
 
     public static function getRelations(): array

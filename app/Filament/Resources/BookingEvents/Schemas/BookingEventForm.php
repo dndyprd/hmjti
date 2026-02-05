@@ -29,7 +29,7 @@ class BookingEventForm
                     ->native(false)
                     ->displayFormat('d/m/Y H:i')
                     ->seconds(false),
-
+ 
                 DateTimePicker::make('ends_at')
                     ->label('Ends at')
                     ->placeholder('dd/mm/yyyy 00:00')
@@ -50,7 +50,7 @@ class BookingEventForm
                             ->label('Kontak Person')
                             ->placeholder('Masukkan No Telp Anda')
                             ->tel()
-                            ->default(fn () => auth()->user()?->phone)
+                            ->default(fn () => auth('web')->user()?->phone ?? null)
                             ->required(),
 
                         TextInput::make('contact_name')
@@ -66,7 +66,7 @@ class BookingEventForm
                     ->columnSpanFull(),
 
                 Hidden::make('user_id')
-                    ->default(fn () => auth()->id()),
+                    ->default(fn () => auth('web')->id()),
             ]);
     }
 }
